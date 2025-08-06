@@ -35,7 +35,7 @@ const Projects = () => {
       year: '2024',
       category: 'Sports & Entertainment',
       image: ekanahero,
-      description: 'State-of-the-art stadium lighting meeting international standards with dynamic color-changing capabilities.',
+      description: 'International cricket stadium featuring BCCI-approved floodlights with record-breaking lighting poles - the highest floodlight installation in India, meeting world-class standards.',
       client: 'Sports Authority of India',
       anchor: 'lucknow-kana-stadium'
     },
@@ -46,42 +46,42 @@ const Projects = () => {
       year: '2023',
       category: 'Cultural & Heritage',
       image: ramhero,
-      description: 'Heritage-inspired lighting pathway celebrating Ayodhya\'s cultural significance with sustainable solar-powered systems.',
+      description: 'Sacred pathway illumination featuring elegant street poles and decorative lamps leading to the magnificent Ram Mandir, creating a divine journey of light.',
       client: 'Ayodhya Development Authority',
       anchor: 'ayodhya-ram-path'
     },
     {
       id: 4,
       title: 'Lohia Dwar',
-      location: 'lucknow, Uttar Pradesh',
+      location: 'Lucknow, Uttar Pradesh',
       year: '2024',
       category: 'Cultural & Heritage',
       image: lohiahero,
-      description: 'Sacred ghats lighting with underwater LED systems creating magical reflections while preserving spiritual ambiance.',
-      client: 'Varanasi Smart City Mission',
-      anchor: 'varanasi-ghats'
+      description: 'Majestic gateway structure lighting marking the grand entrance to Gomti Nagar, transforming Lohia Path into a luminous boulevard of architectural excellence.',
+      client: 'Lucknow Development Authority',
+      anchor: 'lohia-dwar'
     },
     {
       id: 5,
       title: 'Modern Rail-Coach Factory',
-      location: 'raibareili, Uttar Pradesh',
+      location: 'Raebareli, Uttar Pradesh',
       year: '2023',
-      category: 'Transportation Infrastructure',
+      category: 'Industrial Infrastructure',
       image: railhero,
-      description: 'Comprehensive metro lighting solution with smart controls and wayfinding systems for modern transportation.',
-      client: 'UP Metro Rail Corporation',
-      anchor: 'agra-metro-network'
+      description: 'Comprehensive industrial lighting solution for large-scale manufacturing facility, featuring high-bay LED systems and smart controls for optimal productivity.',
+      client: 'Rail Coach Factory',
+      anchor: 'rail-coach-factory'
     },
     {
       id: 6,
       title: 'Dhyan Chand Stadium',
       location: 'Jhansi, Uttar Pradesh',
       year: '2024',
-      category: 'Commercial Complex',
+      category: 'Sports & Recreation',
       image: jhansihero,
-      description: 'Modern corporate complex with circadian lighting systems and daylight harvesting technology for employee wellbeing.',
-      client: 'Noida Authority',
-      anchor: 'noida-corporate-hub'
+      description: 'Premier hockey stadium lighting honoring the legendary Major Dhyan Chand, featuring professional-grade sports illumination for international tournaments.',
+      client: 'Sports Authority of Uttar Pradesh',
+      anchor: 'dhyan-chand-stadium'
     }
   ];
 

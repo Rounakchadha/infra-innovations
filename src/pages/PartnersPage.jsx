@@ -8,13 +8,11 @@ import begaLogo from '../assets/company_logo/bega-logo.png';
 import neriLogo from '../assets/company_logo/neri-logo.png';
 import traxonLogo from '../assets/company_logo/Traxone.jpg';
 import vizionLogo from '../assets/company_logo/vizion.jpg';
-import zumtobelLogo from '../assets/company_logo/zumtobel.jpg';
-import osramLogo from '../assets/company_logo/osram.jpg';
-import geLogo from '../assets/company_logo/ge.jpg';
-import jaquarLogo from '../assets/company_logo/jaquar.jpg';
 import neriProject from '../assets/projectPhoto/neriProject.jpg';
 import flosProject from '../assets/projectPhoto/flosProject.jpg';
 import begaProject from '../assets/projectPhoto/begaproject.jpg';
+import vizionProject from '../assets/projectPhoto/vizionProject.jpg';
+import traxonProject from '../assets/projectPhoto/traxonProject.jpg';
 
 const PartnersPage = () => {
   // Scroll to top when component mounts
@@ -24,14 +22,22 @@ const PartnersPage = () => {
 
   const mainPartners = [
     {
-      description: 'Innovative lighting solutions with a focus on design and technology. Known for bespoke and sustainable lighting projects that push the boundaries of contemporary design. Their commitment to excellence and innovation has made them a leader in the architectural lighting industry.',
-      logo: flosLogo,
-      website: 'https://professional.flos.com/en/global/',
+      description: 'Creators of elegant urban lighting and furniture, blending tradition with modernity to enhance public spaces. Experts in creating lighting solutions that complement architectural environments while respecting cultural heritage and urban planning principles.',
+      logo: neriLogo,
+      website: 'https://www.neri.biz/',
       founded: '1962',
-      specialty: 'Contemporary Design Lighting',
-      projects: '50+ Projects',
-      image: flosProject, // Fixed: Using imported variable instead of string
-      partnership: 'Since 2015'
+      specialty: 'Urban & Public Space Lighting',
+      image: neriProject,
+      projectName: 'India Gate, New Delhi by Neri'
+    },
+    {
+      description: 'Specialists in architectural LED solutions with cutting-edge technology and innovative design approaches. Known for their precision engineering and commitment to creating lighting that enhances architectural beauty while maintaining energy efficiency and sustainability.',
+      logo: vizionLogo,
+      website: 'https://www.vizionlighting.com/',
+      founded: '2005',
+      specialty: 'Architectural LED Solutions',
+      image: vizionProject,
+      projectName: 'Vizion Corporate office, Noida'
     },
     {
       description: 'Specialists in durable and timeless outdoor and indoor lighting solutions, combining functionality with aesthetics. Known for their precision engineering and sustainable practices, creating lighting that stands the test of time while maintaining environmental responsibility.',
@@ -39,58 +45,26 @@ const PartnersPage = () => {
       website: 'https://www.bega.com/',
       founded: '1945',
       specialty: 'Outdoor & Architectural Lighting',
-      projects: '35+ Projects',
-      image: begaProject, // Fixed: Using imported variable
-      partnership: 'Since 2016'
+      image: begaProject,
+      projectName: 'Athena Castle Germany by Bega'
     },
     {
-      description: 'Creators of elegant urban lighting and furniture, blending tradition with modernity to enhance public spaces. Experts in creating lighting solutions that complement architectural environments while respecting cultural heritage and urban planning principles.',
-      logo: neriLogo,
-      website: 'https://www.neri.biz/',
+      description: 'Innovative lighting solutions with a focus on design and technology. Known for bespoke and sustainable lighting projects that push the boundaries of contemporary design. Their commitment to excellence and innovation has made them a leader in the architectural lighting industry.',
+      logo: flosLogo,
+      website: 'https://professional.flos.com/en/global/',
       founded: '1962',
-      specialty: 'Urban & Public Space Lighting',
-      projects: '40+ Projects',
-      image: neriProject, // Fixed: Using imported variable
-      partnership: 'Since 2017'
-    }
-  ];
-
-  const additionalPartners = [
-    { 
-      name: 'Traxon e:cue', 
-      specialty: 'Dynamic LED Lighting & Control Systems', 
+      specialty: 'Contemporary Design Lighting',
+      image: flosProject,
+      projectName: 'Apothem Lounge, Paris by Flos'
+    },
+    {
+      description: 'Dynamic LED lighting and control systems specialists, providing innovative solutions for architectural and entertainment lighting. Leaders in creating intelligent lighting systems that respond to environmental conditions and user preferences with cutting-edge technology.',
       logo: traxonLogo,
-      website: 'https://www.traxon-ecue.com'
-    },
-    { 
-      name: 'Vizion Lighting', 
-      specialty: 'Architectural LED Solutions', 
-      logo: vizionLogo,
-      website: 'https://www.vizionlighting.com/'
-    },
-    { 
-      name: 'Zumtobel', 
-      specialty: 'Professional Lighting Solutions', 
-      logo: zumtobelLogo,
-      website: 'https://www.zumtobel.com/'
-    },
-    { 
-      name: 'Osram', 
-      specialty: 'LED Technology & Smart Lighting', 
-      logo: osramLogo,
-      website: 'https://www.osram.com/'
-    },
-    { 
-      name: 'GE Lighting', 
-      specialty: 'Industrial & Commercial Lighting', 
-      logo: geLogo,
-      website: 'https://www.gelighting.com/'
-    },
-    { 
-      name: 'Jaquar', 
-      specialty: 'Luxury Lighting & Electrical Solutions', 
-      logo: jaquarLogo,
-      website: 'https://www.jaquar.com/en/cls-house-lights'
+      website: 'https://www.traxon-ecue.com',
+      founded: '1999',
+      specialty: 'Dynamic LED Lighting & Control Systems',
+      image: traxonProject,
+      projectName: 'Museum of the Future, Dubai by Traxon Ecue'
     }
   ];
 
@@ -102,7 +76,7 @@ const PartnersPage = () => {
       <section 
         className="pt-24 pb-16 bg-black relative overflow-hidden"
         style={{
-          backgroundImage: `url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k=')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'
@@ -133,66 +107,58 @@ const PartnersPage = () => {
 
           <div className="space-y-20">
             {mainPartners.map((partner, index) => (
-              <div key={index} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-                <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                  <div className="mb-6">
-                    <div className="bg-white p-4 rounded-lg shadow-sm mb-6 inline-block">
+              <div key={index} className={`grid lg:grid-cols-2 gap-12 items-start ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
+                {/* Text Content */}
+                <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+                  {/* Logo Container - Starting point for alignment */}
+                  <div className="mb-8">
+                    <div className="bg-white p-6 rounded-lg shadow-sm w-48 h-24 flex items-center justify-center">
                       <img 
                         src={partner.logo} 
                         alt={`Partner ${index + 1}`}
-                        className="h-16 object-contain"
+                        className="max-h-16 max-w-full object-contain"
                       />
                     </div>
                   </div>
                   
+                  {/* Description */}
                   <p className="text-gray-300 text-lg leading-relaxed mb-8">
                     {partner.description}
                   </p>
 
+                  {/* Info Grid - Only 2 boxes now */}
                   <div className="grid grid-cols-2 gap-4 mb-8">
-                    <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
+                    <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 min-h-[80px] flex flex-col justify-center">
                       <div className="flex items-center mb-2">
                         <Calendar className="w-5 h-5 text-blue-400 mr-2" />
                         <span className="font-semibold text-white">Founded</span>
                       </div>
                       <p className="text-gray-300">{partner.founded}</p>
                     </div>
-                    <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
+                    <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 min-h-[80px] flex flex-col justify-center">
                       <div className="flex items-center mb-2">
                         <Award className="w-5 h-5 text-blue-400 mr-2" />
                         <span className="font-semibold text-white">Specialty</span>
                       </div>
-                      <p className="text-gray-300">{partner.specialty}</p>
-                    </div>
-                    <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
-                      <div className="flex items-center mb-2">
-                        <Users className="w-5 h-5 text-blue-400 mr-2" />
-                        <span className="font-semibold text-white">Projects</span>
-                      </div>
-                      <p className="text-gray-300">{partner.projects}</p>
-                    </div>
-                    <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
-                      <div className="flex items-center mb-2">
-                        <Globe className="w-5 h-5 text-blue-400 mr-2" />
-                        <span className="font-semibold text-white">Partnership</span>
-                      </div>
-                      <p className="text-gray-300">{partner.partnership}</p>
+                      <p className="text-gray-300 text-sm">{partner.specialty}</p>
                     </div>
                   </div>
 
+                  {/* Website Button */}
                   <a 
                     href={partner.website} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group"
+                    className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group w-fit"
                   >
                     Visit Website
                     <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
 
-                <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
-                  <div className="relative overflow-hidden rounded-2xl shadow-2xl group">
+                {/* Image Container - Aligned to start from logo position */}
+                <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                  <div className="relative overflow-hidden rounded-2xl shadow-2xl group w-full">
                     <img 
                       src={partner.image} 
                       alt={`Partner ${index + 1} project`}
@@ -201,51 +167,11 @@ const PartnersPage = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                     <div className="absolute bottom-6 left-6 text-white">
                       <p className="text-sm font-medium opacity-90">Featured Project</p>
-                      <p className="text-lg font-bold">Lighting Installation</p>
+                      <p className="text-lg font-bold">{partner.projectName}</p>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Additional Partners with Clickable Websites */}
-      <section className="py-20 bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Additional Partners</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Our extended network of trusted partners and suppliers who help us deliver comprehensive lighting solutions
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {additionalPartners.map((partner, index) => (
-              <a 
-                key={index}
-                href={partner.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-black border border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2 cursor-pointer"
-              >
-                <div className="mb-4 bg-white p-4 rounded-lg">
-                  <img 
-                    src={partner.logo} 
-                    alt={partner.name}
-                    className="h-12 object-contain mx-auto group-hover:scale-110 transition-transform duration-300"
-                    onError={(e) => {
-                      e.target.src = `https://via.placeholder.com/120x60/6366F1/FFFFFF?text=${partner.name.substring(0, 3).toUpperCase()}`;
-                    }}
-                  />
-                </div>
-                <h4 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">{partner.name}</h4>
-                <p className="text-blue-400 text-sm font-semibold">{partner.specialty}</p>
-                <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ExternalLink className="w-4 h-4 text-blue-400 mx-auto" />
-                </div>
-              </a>
             ))}
           </div>
         </div>

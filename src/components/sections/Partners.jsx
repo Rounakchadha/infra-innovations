@@ -4,15 +4,22 @@ import { Link } from 'react-router-dom';
 import flosLogo from '../../assets/company_logo/flos-logo.png'; 
 import begaLogo from '../../assets/company_logo/bega-logo.png';
 import neriLogo from '../../assets/company_logo/neri-logo.png';
+import vizionLogo from '../../assets/company_logo/vizion.jpg';
 
 const Partners = () => {
-  // Only show 3 main partners on the home page with local logos
+  // Show 4 main partners on the home page with local logos
   const mainPartners = [  
     {
-      name: 'Flos',
-      description: 'Innovative lighting solutions with a focus on design and technology. Known for bespoke and sustainable lighting projects.',
-      logo: flosLogo,
-      website: 'https://professional.flos.com/en/global/',
+      name: 'Neri',
+      description: 'Creators of elegant urban lighting and furniture, blending tradition with modernity to enhance public spaces.',
+      logo: neriLogo,
+      website: 'https://www.neri.biz/',
+    },
+    {
+      name: 'Vizion Lighting',
+      description: 'Specialists in architectural LED solutions with cutting-edge technology and innovative design approaches.',
+      logo: vizionLogo,
+      website: 'https://www.vizionlighting.com/',
     },
     {
       name: 'Bega',
@@ -21,10 +28,10 @@ const Partners = () => {
       website: 'https://www.bega.com/',
     },
     {
-      name: 'Neri',
-      description: 'Creators of elegant urban lighting and furniture, blending tradition with modernity to enhance public spaces.',
-      logo: neriLogo,
-      website: 'https://www.neri.biz/',
+      name: 'Flos',
+      description: 'Innovative lighting solutions with a focus on design and technology. Known for bespoke and sustainable lighting projects.',
+      logo: flosLogo,
+      website: 'https://professional.flos.com/en/global/',
     }
   ];
 
@@ -42,8 +49,8 @@ const Partners = () => {
           </p>
         </div>
 
-        {/* Partners Grid - Only 3 Partners */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        {/* Partners Grid - Now 4 Partners */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {mainPartners.map((partner, index) => (
             <div
               key={index}

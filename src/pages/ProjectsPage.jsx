@@ -76,10 +76,10 @@ const ProjectsPage = () => {
     {
       title: 'Lucknow High Court Bench',
       location: 'Lucknow, Uttar Pradesh',
-      year: '2023',
+      year: '2016',
       category: 'Government & Judicial',
       client: 'Government of Uttar Pradesh',
-      area: '50,000 sq ft',
+      area: '2,690,977 sq ft',
       anchor: 'lucknow-high-court',
       heroImage: highcourt1,
       images: [
@@ -88,24 +88,24 @@ const ProjectsPage = () => {
         highcourt4,
         highcourt5
       ],
-      description: 'A prestigious judicial complex that represents the dignity and authority of the legal system. This project involved comprehensive lighting design for courtrooms, chambers, public areas, and administrative offices.',
+      description: 'A prestigious judicial complex that represents the dignity and authority of the legal system. This project involved comprehensive lighting design for courtrooms, chambers, public areas, and administrative offices and the prestigious building facade ensuring optimal visibility for proceedings while maintaining the solemnity of the judicial environment.',
       details: [
-        'Designed specialized courtroom lighting that ensures optimal visibility for proceedings while maintaining the solemnity of the judicial environment.',
-        'Implemented energy-efficient LED systems throughout the complex, reducing power consumption by 40% compared to traditional lighting.',
-        'Created ambient lighting in public waiting areas to provide comfort for visitors while maintaining security visibility.',
-        'Installed emergency lighting systems with backup power to ensure continuous operation during critical proceedings.'
+        'Designed specialized courtroom lighting that ensures optimal visibility for proceedings while maintaining the solemnity and dignity of the judicial environment.',
+        'Implemented energy-efficient LED systems throughout the complex, reducing power consumption by 40% compared to traditional lighting solutions.',
+        'Created ambient lighting in public waiting areas to provide comfort for visitors while maintaining security visibility and professional atmosphere.',
+        'one of the finest dynamic facade lighting on a newly constructed judicial building.'
       ],
       features: [
         'Smart lighting control systems',
         'Emergency backup lighting',
         'Energy-efficient LED technology',
-        'Acoustic-friendly fixtures'
+        'dynamic color changing building facade'
       ]
     },
     {
       title: 'Lucknow Ekana Stadium',
       location: 'Lucknow, Uttar Pradesh',
-      year: '2024',
+      year: '2018',
       category: 'Sports & Entertainment',
       client: 'Sports Authority of India',
       area: '75,000 sq ft',
@@ -117,18 +117,18 @@ const ProjectsPage = () => {
         ekana4,
         ekana5
       ],
-      description: 'A state-of-the-art cricket stadium designed to host international matches and entertainment events. The lighting system ensures optimal visibility for both players and spectators.',
+      description: 'International cricket stadium featuring BCCI-approved floodlights with record-breaking lighting poles - the highest floodlight installation in India. This state-of-the-art facility meets world-class standards for hosting international matches and entertainment events.',
       details: [
-        'Installed high-performance sports lighting that meets international cricket standards for day-night matches.',
-        'Designed dynamic lighting systems for entertainment events with color-changing capabilities and synchronized effects.',
-        'Implemented smart controls that adjust lighting levels based on event type and time of day.',
-        'Created energy-efficient solutions that reduce operational costs while maintaining superior light quality.'
+        'Installed high-performance sports lighting that meets international cricket standards and BCCI approval for day-night matches and tournaments.',
+        'Achieved a world record for the highest floodlight installation in India, setting new benchmarks for stadium lighting infrastructure.',
+        'Designed dynamic lighting systems for entertainment events with color-changing capabilities and synchronized effects for opening ceremonies.',
+        'Implemented smart controls that adjust lighting levels based on event type, time of day, and broadcasting requirements for international coverage.'
       ],
       features: [
-        'International cricket lighting standards',
-        'Dynamic color-changing systems',
-        'Weather-resistant fixtures',
-        'Remote monitoring capabilities'
+        'BCCI-approved floodlights',
+        'Record-breaking pole heights',
+        'International cricket standards',
+        'Dynamic color-changing systems'
       ]
     },
     {
@@ -136,7 +136,7 @@ const ProjectsPage = () => {
       location: 'Jhansi, Uttar Pradesh',
       year: '2023',
       category: 'Sports & Entertainment',
-      client: 'Sports Authority of India',
+      client: 'Sports Authority of Uttar Pradesh',
       area: '45,000 sq ft',
       anchor: 'dhyanchand-hockey-stadium',
       heroImage: jhansi1,
@@ -146,28 +146,28 @@ const ProjectsPage = () => {
         jhansi4,
         jhansi5
       ],
-      description: 'Premier hockey stadium lighting designed to meet international FIH standards for professional hockey matches and training facilities.',
+      description: 'Premier hockey stadium lighting honoring the legendary Major Dhyan Chand, featuring professional-grade sports illumination for international tournaments. This facility meets FIH international standards and celebrates India\'s hockey heritage.',
       details: [
-        'Designed specialized hockey field lighting that meets FIH international standards for professional matches.',
-        'Implemented uniform light distribution across the playing surface to eliminate shadows and glare.',
-        'Created energy-efficient LED systems with instant on/off capabilities for training and match scenarios.',
-        'Installed weather-resistant fixtures capable of withstanding extreme weather conditions.'
+        'Designed specialized hockey field lighting that meets FIH international standards for professional matches and international tournaments.',
+        'Created a tribute to the legendary Major Dhyan Chand through thoughtful lighting design that honors India\'s hockey heritage and sporting excellence.',
+        'Implemented uniform light distribution across the playing surface to eliminate shadows and glare, ensuring optimal playing conditions for athletes.',
+        'Installed weather-resistant fixtures capable of withstanding extreme weather conditions while maintaining consistent performance throughout the year.'
       ],
       features: [
         'FIH international standards',
+        'Heritage tribute design',
         'Uniform light distribution',
-        'Instant on/off LED systems',
-        'Weather-resistant design'
+        'Weather-resistant fixtures'
       ]
     },
     {
       title: 'Rail Coach Factory',
       location: 'Raebareli, Uttar Pradesh',
-      year: '2024',
+      year: '2014',
       category: 'Industrial Infrastructure',
       client: 'Indian Railways',
       area: '150,000 sq ft',
-      anchor: 'jhansi-rail-coach-factory',
+      anchor: 'rail-coach-factory',
       heroImage: rail1,
       images: [
         rail2,
@@ -175,12 +175,12 @@ const ProjectsPage = () => {
         rail4,
         rail5
       ],
-      description: 'Comprehensive industrial lighting solution for railway coach manufacturing facility, ensuring optimal working conditions and safety standards.',
+      description: 'Comprehensive industrial lighting solution for large-scale railway coach manufacturing facility. This project enhances productivity and safety while meeting stringent industrial standards for precision manufacturing operations.',
       details: [
-        'Designed high-bay lighting systems for manufacturing floors with uniform light distribution and minimal glare.',
-        'Implemented specialized task lighting for precision assembly work and quality control areas.',
-        'Created maintenance-friendly lighting solutions with long-life LED fixtures to minimize production downtime.',
-        'Installed intelligent lighting controls that integrate with the facility management system for optimal operation.'
+        'Designed high-bay lighting systems for manufacturing floors with uniform light distribution and minimal glare for precision assembly work.',
+        'Implemented specialized task lighting for quality control areas, welding stations, and detailed assembly work requiring high accuracy and visibility.',
+        'Created maintenance-friendly lighting solutions with long-life LED fixtures to minimize production downtime and reduce operational costs.',
+        'Installed intelligent lighting controls that integrate with the facility management system for optimal energy efficiency and automated operation.'
       ],
       features: [
         'High-bay LED systems',
@@ -190,13 +190,13 @@ const ProjectsPage = () => {
       ]
     },
     {
-      title: 'Lohia Dwar & ambedkar park',
-      location: 'lucknow, Uttar Pradesh',
-      year: '2023',
-      category: 'cultural and heritage',
+      title: 'Lohia Dwar & Ambedkar Park',
+      location: 'Lucknow, Uttar Pradesh',
+      year: '2010',
+      category: 'Cultural & Heritage',
       client: 'Government of Uttar Pradesh',
       area: '200,000 sq ft',
-      anchor: 'raebareli-complex',
+      anchor: 'lohia-dwar-ambedkar-park',
       heroImage: lohia3,
       images: [
         lohia2,
@@ -204,24 +204,24 @@ const ProjectsPage = () => {
         lohia4,
         lohia5
       ],
-      description: 'Large-scale manufacturing complex lighting designed to enhance productivity and safety while meeting stringent industrial standards.',
+      description: 'Majestic gateway structure lighting marking the grand entrance to Gomti Nagar, transforming Lohia Path into a luminous boulevard of architectural excellence. This heritage project combines cultural significance with modern lighting technology.',
       details: [
-        'Implemented energy-efficient lighting systems across multiple manufacturing units and warehouses.',
-        'Designed specialized lighting for different production zones including assembly, testing, and packaging areas.',
-        'Created smart lighting controls that adjust brightness based on production schedules and natural daylight.',
-        'Installed emergency lighting with battery backup systems ensuring safety during power outages.'
+        'Designed heritage-sensitive lighting that highlights the architectural grandeur of the gateway while respecting the cultural importance of the memorial.',
+        'Created dramatic illumination for the entrance to Gomti Nagar, establishing Lohia Path as a prestigious boulevard with sophisticated lighting design.',
+        'Implemented energy-efficient LED systems with warm color temperatures to create a welcoming and dignified atmosphere for visitors and residents.',
+        'Installed weather-resistant fixtures suitable for outdoor memorial environments with special lighting sequences for national holidays and commemorative events.'
       ],
       features: [
-        'Multi-zone lighting design',
-        'Smart daylight integration',
-        'Emergency backup systems',
-        'Energy-efficient LED technology'
+        'Heritage gateway lighting',
+        'Architectural accent illumination',
+        'Weather-resistant systems',
+        'Commemorative lighting sequences'
       ]
     },
     {
       title: 'Ayodhya Ram Path',
       location: 'Ayodhya, Uttar Pradesh',
-      year: '2023',
+      year: '2024',
       category: 'Cultural & Heritage',
       client: 'Ayodhya Development Authority',
       area: '2 km stretch',
@@ -233,18 +233,18 @@ const ProjectsPage = () => {
         ram4,
         ram5
       ],
-      description: 'An iconic cultural pathway that celebrates the rich heritage of Ayodhya. This project combines traditional aesthetics with modern lighting technology.',
+      description: 'Sacred pathway illumination featuring elegant street poles and decorative lamps leading to the magnificent Ram Mandir, creating a divine journey of light. This iconic cultural pathway celebrates the rich heritage of Ayodhya with traditional aesthetics and modern technology.',
       details: [
-        'Designed heritage-inspired lighting fixtures that complement the traditional architecture while providing modern functionality.',
-        'Created a lighting narrative that guides visitors through the cultural journey with varying intensities and warm color temperatures.',
-        'Implemented sustainable lighting solutions using solar-powered systems in select areas to reduce environmental impact.',
-        'Installed decorative lighting for festivals and special occasions that can transform the pathway into a celebration of light.'
+        'Designed heritage-inspired lighting fixtures with elegant street poles and decorative lamps that complement the traditional architecture while providing modern functionality.',
+        'Created a spiritual lighting narrative that guides pilgrims and visitors through their journey to the Ram Mandir with varying intensities and warm, welcoming illumination.',
+        'Implemented sustainable lighting solutions using solar-powered systems in select areas to reduce environmental impact while maintaining consistent illumination.',
+        'Installed special festival lighting capabilities that can transform the pathway into a celebration of light during religious festivals and special occasions.'
       ],
       features: [
-        'Heritage-inspired design',
+        'Heritage-inspired street poles',
+        'Decorative lamp fixtures',
         'Solar-powered sections',
-        'Festival lighting capabilities',
-        'Pedestrian-friendly illumination'
+        'Festival lighting capabilities'
       ]
     }
   ];
@@ -258,7 +258,7 @@ const ProjectsPage = () => {
       image: mall1,
       description: 'Premium shopping mall with dynamic retail lighting solutions and energy-efficient systems.',
       location: 'Lucknow, UP',
-      year: '2024'
+      year: '2010'
     },
     {
       title: 'Sahara Star Hotel',
@@ -266,7 +266,7 @@ const ProjectsPage = () => {
       image: hotel1,
       description: 'Luxury hotel lighting with elegant chandeliers and sophisticated ambient systems.',
       location: 'Mumbai, Maharashtra',
-      year: '2024'
+      year: '2010'
     },
     {
       title: 'Hazratganj Lighting',
@@ -274,7 +274,7 @@ const ProjectsPage = () => {
       image: hazrat1,
       description: 'Historic market street illumination preserving heritage while enhancing safety.',
       location: 'Lucknow, UP',
-      year: '2023'
+      year: '2011'
     },
     {
       title: 'Ambedkar Park',
@@ -282,14 +282,14 @@ const ProjectsPage = () => {
       image: lohia3,
       description: 'Memorial park lighting with artistic illumination and pathway safety systems.',
       location: 'Lucknow, UP',
-      year: '2024'
+      year: '2010'
     },
     {
-      title: 'Lucknow Eco Park',
-      category: 'Parks & Recreation',
+      title: 'MKU LIMITED',
+      category: 'Global defense & homeland security',
       image: eco1,
-      description: 'Eco-friendly park lighting with solar-powered systems and wildlife-safe illumination.',
-      location: 'Lucknow, UP',
+      description: 'state of the art office lighting at their headquarters at kanpur',
+      location: 'Kanpur, UP',
       year: '2023'
     },
     {
@@ -298,7 +298,7 @@ const ProjectsPage = () => {
       image: taj1,
       description: 'Luxury heritage hotel with sophisticated lighting design and premium ambiance.',
       location: 'Lucknow, UP',
-      year: '2024'
+      year: '2013'
     }
   ];
 
@@ -310,34 +310,34 @@ const ProjectsPage = () => {
       features: ['Precision track lighting', 'Color-accurate illumination', 'Glare-free display lighting']
     },
     {
-      title: 'Hotels, Hospitality & malls',
+      title: 'Hotels, Hospitality & Malls',
       description: 'Elegant lighting solutions creating memorable guest experiences',
-      projects: ['Taj Hotel Lucknow', 'Sahara Star hotel, Mumbai','Sahara Mall Lucknow'],
+      projects: ['Taj Hotel Lucknow', 'Sahara Star Hotel Mumbai', 'Sahara Mall Lucknow'],
       features: ['Ambient mood lighting', 'Smart room controls', 'Energy-efficient systems']
     },
     {
-      title: 'Jewellery Showrooms & GYMs',
-      description: 'Specialized lighting to showcase precious metals and gemstones',
-      projects: ['Premium Jewellery Stores', 'Diamond Showrooms', 'gyms'],
+      title: 'Jewellery Showrooms & Gyms',
+      description: 'Specialized lighting to showcase precious metals and enhance fitness environments',
+      projects: ['Premium Jewellery Stores', 'Diamond Showrooms', 'Fitness Centers'],
       features: ['High CRI lighting', 'Sparkle enhancement', 'Security-integrated systems']
     },
     {
       title: 'Parks & Pathways',
       description: 'Safe and beautiful outdoor lighting for public spaces',
-      projects: ['Ambedkar Park', 'Eco Park', 'Hazratganj street lighting','Ayodhya Ram Path'],
+      projects: ['Ambedkar Park', 'Eco Park', 'Hazratganj Street Lighting', 'Ayodhya Ram Path'],
       features: ['Solar-powered options', 'Motion sensors', 'Wildlife-friendly lighting']
     },
     {
-      title: 'Infrastructure',
-      description: 'Comprehensive lighting solutions for urban infrastructure',
-      projects: ['Ekana Stadium', 'Dhayanchand Hockey Stadium',],
-      features: ['Smart integration', 'Energy monitoring', 'Weather-resistant design']
+      title: 'Sports Infrastructure',
+      description: 'Professional-grade lighting for sports facilities and stadiums',
+      projects: ['Ekana Cricket Stadium', 'Dhyan Chand Hockey Stadium'],
+      features: ['International standards', 'BCCI approval', 'Weather-resistant design']
     },
     {
-      title: 'Facade Lighting',
-      description: 'Architectural lighting that transforms building exteriors',
-      projects: ['Lucknow Highcourt','Lohia Dwar', 'Heritage Structures'],
-      features: ['Dynamic color changing', 'Programmable sequences', 'Architectural integration']
+      title: 'Government & Heritage',
+      description: 'Architectural lighting that transforms institutional and heritage buildings',
+      projects: ['Lucknow High Court', 'Lohia Dwar', 'Heritage Structures'],
+      features: ['Heritage-sensitive design', 'Energy efficiency', 'Architectural integration']
     }
   ];
 
@@ -368,7 +368,7 @@ const ProjectsPage = () => {
               Our <span className="text-blue-400">Projects</span>
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed text-justify">
               Discover our portfolio of transformative lighting projects that illuminate India's most prestigious spaces
             </p>
           </div>
@@ -381,7 +381,7 @@ const ProjectsPage = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6">Featured Projects</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-justify">
               Explore our most prestigious and impactful lighting installations
             </p>
           </div>
@@ -443,7 +443,7 @@ const ProjectsPage = () => {
               <div className="grid lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2">
                   <h4 className="text-2xl font-bold text-white mb-4">Project Overview</h4>
-                  <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                  <p className="text-gray-300 text-lg leading-relaxed mb-6 text-justify">
                     {project.description}
                   </p>
 
@@ -452,7 +452,7 @@ const ProjectsPage = () => {
                     {project.details.map((detail, detailIndex) => (
                       <li key={detailIndex} className="flex items-start">
                         <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="text-gray-300 leading-relaxed">{detail}</span>
+                        <span className="text-gray-300 leading-relaxed text-justify">{detail}</span>
                       </li>
                     ))}
                   </ul>
@@ -509,7 +509,7 @@ const ProjectsPage = () => {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-6">More Projects</h2>
             <div className="w-16 h-1 bg-blue-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-justify">
               Explore our diverse portfolio across different sectors and industries
             </p>
           </div>
@@ -552,7 +552,7 @@ const ProjectsPage = () => {
                   <h4 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
                     {project.title}
                   </h4>
-                  <p className="text-gray-300 mb-4 leading-relaxed">
+                  <p className="text-gray-300 mb-4 leading-relaxed text-justify">
                     {project.description}
                   </p>
                   
@@ -580,7 +580,7 @@ const ProjectsPage = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6">Our Expertise</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-justify">
               Specialized lighting solutions across diverse sectors and industries
             </p>
           </div>
@@ -590,12 +590,12 @@ const ProjectsPage = () => {
               {projectExpertise.map((expertise, index) => (
                 <div key={index} className="group">
                   {/* Main Title */}
-                                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
                     {expertise.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-gray-300 mb-6 leading-relaxed text-lg">
+                  <p className="text-gray-300 mb-6 leading-relaxed text-lg text-justify">
                     {expertise.description}
                   </p>
 
@@ -650,7 +650,7 @@ const ProjectsPage = () => {
             <div className="text-center">
               <p className="text-gray-400 text-sm">
                 © 2024 All rights reserved. | 
-                <span className="text-blue-400 ml-1">Designed with precision, illuminated with passion.</span>
+                                <span className="text-blue-400 ml-1">Designed with precision, illuminated with passion.</span>
               </p>
             </div>
 
@@ -692,4 +692,3 @@ const ProjectsPage = () => {
 
 export default ProjectsPage;
 
-                

@@ -112,16 +112,16 @@ const AboutPage = () => {
                     </p>
                     
                     <p>
-                      Under his visionary leadership, Infra Innovations has completed over 200 prestigious projects, 
+                      Under the visionary leadership, Infra Innovations has completed over 200 prestigious projects, 
                       including major government buildings like the Lucknow High Court, cultural landmarks such as 
-                      Ayodhya Ram Path, and modern commercial complexes across multiple cities. Rajesh's commitment 
+                      Ayodhya Ram Path, and modern commercial complexes across multiple cities. Rahul's commitment 
                       to innovation and uncompromising quality standards has established the company as a trusted 
                       partner for India's most significant architectural lighting projects.
                     </p>
                     
                     <p>
                       His expertise in sustainable lighting solutions, smart lighting systems, and energy-efficient 
-                      technologies has positioned Infra Innovations at the forefront of the industry. Rajesh continues 
+                      technologies has positioned Infra Innovations at the forefront of the industry. Rahul's continues 
                       to lead the company with a focus on delivering projects that not only exceed client expectations 
                       but also contribute to creating more beautiful, functional, and sustainable built environments 
                       across India.

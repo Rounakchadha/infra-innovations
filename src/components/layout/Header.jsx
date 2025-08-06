@@ -23,24 +23,25 @@ const Header = () => {
     { name: 'Contact', to: '/contact' },
   ];
 
-  // Glass morphism background style
+  // Glass morphism background style with smooth border transition
   const getGlassBackground = () => {
     if (isScrolled) {
       return {
-        background: 'rgba(0, 0, 0, 0.3)',
+        background: 'rgba(0, 0, 0, 0.85)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
+        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.15)'
       };
     }
-    return {};
+    return {
+      borderBottom: '1px solid transparent'
+    };
   };
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 text-white ${
-        isScrolled ? 'border-b border-white/20' : 'bg-transparent'
-      }`}
+      className="fixed w-full z-50 transition-all duration-500 ease-out text-white"
       style={getGlassBackground()}
     >
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">

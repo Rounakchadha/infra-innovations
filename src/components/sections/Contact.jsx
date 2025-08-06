@@ -20,7 +20,7 @@ const Contact = () => {
     e.preventDefault();
     
     // Your WhatsApp number
-    const phoneNumber = '7706900889';
+    const phoneNumber = '9415011227';
     
     // Create the message text
     const whatsappMessage = `Hello Infra Innovations!

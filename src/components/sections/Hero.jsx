@@ -23,7 +23,7 @@ const Hero = () => {
       setCurrentImageIndex((prevIndex) => 
         (prevIndex + 1) % backgroundImages.length
       );
-    }, 7000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
@@ -80,7 +80,7 @@ const Hero = () => {
               <div className="text-gray-200 text-xs md:text-sm">Projects Completed</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-blue-400 mb-2">15+</div>
+              <div className="text-2xl md:text-3xl font-bold text-blue-400 mb-2">10+</div>
               <div className="text-gray-200 text-xs md:text-sm">partners</div>
             </div>
             <div className="text-center">
