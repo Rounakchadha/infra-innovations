@@ -676,7 +676,7 @@ const ProjectsPage = () => {
                   </div>
                 </a>
 
-                <a href="https://www.linkedin.com/in/rahul-chadha-3a5532268/" className="group">
+                <a href="https://www.linkedin.com/in/rahul-chadha-3a5532268/" target="_blank" and rel="noopener noreferrer" className="group">
                   <div className="p-2 rounded-full bg-gray-800 hover:bg-blue-700 transition-all duration-300 transform hover:scale-110">
                     <Linkedin className="w-3 h-3 text-blue-500 group-hover:text-blue-400" />
                   </div>
