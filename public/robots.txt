@@ -1,3 +1,7 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+Sitemap: https://www.infra.org.in/sitemap.xml
+
+# Block access to admin areas
+Disallow: /admin/
+Disallow: /private/
