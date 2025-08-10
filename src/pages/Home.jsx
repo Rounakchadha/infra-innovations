@@ -9,8 +9,8 @@ import Contact from '../components/sections/Contact';
 const Home = () => {
   // Critical SEO optimizations for homepage to rank #1
   useEffect(() => {
-    // PRIORITY: Set strongest title for homepage
-    document.title = "Infra Innovations | Home - #1 Lighting Company Lucknow | LED Commercial Stadium Lighting Solutions";
+    // FIXED: Clean, professional title as requested
+    document.title = "Infra Innovations | Lighting Excellence";
     
     // Update meta description with comprehensive content
     const metaDescription = document.querySelector('meta[name="description"]');
