@@ -44,6 +44,89 @@ const ProjectsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const location = useLocation();
 
+  // SEO and performance optimizations
+  useEffect(() => {
+    // Dynamic page title for better SEO
+    document.title = "Our Projects | Infra Innovations - Lucknow High Court, Ekana Stadium, Ayodhya Ram Path Lighting";
+    
+    // Update meta description for projects page
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Explore Infra Innovations\' prestigious lighting projects including Lucknow High Court, Ekana Cricket Stadium, Dhyan Chand Hockey Stadium, Ayodhya Ram Path, and Rail Coach Factory. Leading lighting consultancy with 100+ completed projects across India.');
+    }
+
+    // Add projects page structured data
+    const projectsSchema = {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Our Projects - Infra Innovations",
+      "description": "Portfolio of lighting projects by Infra Innovations across India",
+      "url": "https://www.infra.org.in/projects",
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Lighting Projects Portfolio",
+        "itemListElement": [
+          {
+            "@type": "CreativeWork",
+            "name": "Lucknow High Court Bench Lighting",
+            "description": "Comprehensive lighting design for judicial complex",
+            "dateCreated": "2016",
+            "locationCreated": "Lucknow, Uttar Pradesh",
+            "creator": {
+              "@type": "Organization",
+              "name": "Infra Innovations"
+            }
+          },
+          {
+            "@type": "CreativeWork", 
+            "name": "Lucknow Ekana Stadium Lighting",
+            "description": "BCCI-approved floodlights with record-breaking installation",
+            "dateCreated": "2018",
+            "locationCreated": "Lucknow, Uttar Pradesh",
+            "creator": {
+              "@type": "Organization",
+              "name": "Infra Innovations"
+            }
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Ayodhya Ram Path Lighting",
+            "description": "Sacred pathway illumination with heritage-inspired fixtures",
+            "dateCreated": "2024",
+            "locationCreated": "Ayodhya, Uttar Pradesh",
+            "creator": {
+              "@type": "Organization",
+              "name": "Infra Innovations"
+            }
+          }
+        ]
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(projectsSchema);
+    document.head.appendChild(script);
+
+    // Preload critical project images
+    const criticalImages = [heroBackground, highcourt1, ekana1, jhansi1];
+    criticalImages.forEach((imageSrc, index) => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = imageSrc;
+      if (index < 2) { // Only preload first 2 images immediately
+        document.head.appendChild(link);
+      }
+    });
+
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
+
   // Enhanced scroll handling for anchors
   useEffect(() => {
     const scrollToAnchor = () => {
@@ -358,16 +441,18 @@ const ProjectsPage = () => {
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'
         }}
+        role="banner"
+        aria-label="Infra Innovations Projects Portfolio Hero Section"
       >
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/60 z-0"></div>
+        <div className="absolute inset-0 bg-black/60 z-0" aria-hidden="true"></div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Our <span className="text-blue-400">Projects</span>
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6" aria-hidden="true"></div>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed text-justify">
               Discover our portfolio of transformative lighting projects that illuminate India's most prestigious spaces
             </p>
@@ -376,82 +461,97 @@ const ProjectsPage = () => {
       </section>
 
       {/* Detailed Projects Section */}
-      <section className="py-12 bg-black">
+      <main className="py-12 bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6">Featured Projects</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6" aria-hidden="true"></div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto text-justify">
               Explore our most prestigious and impactful lighting installations
             </p>
           </div>
 
           {detailedProjects.map((project, index) => (
-            <div key={index} className="mb-20 last:mb-0" id={project.anchor}>
+            <article 
+              key={index} 
+              className="mb-20 last:mb-0" 
+              id={project.anchor}
+              itemScope 
+              itemType="https://schema.org/CreativeWork"
+            >
               {/* Project Header with Hero Image */}
-<div className="relative mb-8">
-  <div className="relative overflow-hidden rounded-2xl shadow-2xl h-96 mb-6">
-    <img 
-      src={project.heroImage} 
-      alt={project.title}
-      className="w-full h-full object-cover"
-      style={{ 
-        objectPosition: project.title === 'Lucknow Ekana Stadium' ? 'center bottom' : 'center center' 
-      }}
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-    
-    <div className="absolute bottom-8 left-8 text-white">
-      <h3 className="text-4xl font-bold mb-2">{project.title}</h3>
-      <div className="flex items-center space-x-6 text-lg">
-        <div className="flex items-center">
-          <MapPin className="w-5 h-5 mr-2" />
-          {project.location}
-        </div>
-        <div className="flex items-center">
-          <Calendar className="w-5 h-5 mr-2" />
-          {project.year}
-        </div>
-        <div className="flex items-center">
-          <Award className="w-5 h-5 mr-2" />
-          {project.category}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+              <div className="relative mb-8">
+                <div className="relative overflow-hidden rounded-2xl shadow-2xl h-96 mb-6">
+                  <img 
+                    src={project.heroImage} 
+                    alt={`${project.title} - ${project.description.substring(0, 100)}...`}
+                    className="w-full h-full object-cover"
+                    style={{ 
+                      objectPosition: project.title === 'Lucknow Ekana Stadium' ? 'center bottom' : 'center center' 
+                    }}
+                    width="1200"
+                    height="384"
+                    loading={index < 2 ? "eager" : "lazy"}
+                    decoding="async"
+                    itemProp="image"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" aria-hidden="true"></div>
+                  
+                  <div className="absolute bottom-8 left-8 text-white">
+                    <h3 className="text-4xl font-bold mb-2" itemProp="name">{project.title}</h3>
+                    <div className="flex items-center space-x-6 text-lg flex-wrap gap-2">
+                      <div className="flex items-center">
+                        <MapPin className="w-5 h-5 mr-2 flex-shrink-0" aria-hidden="true" />
+                        <span itemProp="locationCreated">{project.location}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Calendar className="w-5 h-5 mr-2 flex-shrink-0" aria-hidden="true" />
+                        <span itemProp="dateCreated">{project.year}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Award className="w-5 h-5 mr-2 flex-shrink-0" aria-hidden="true" />
+                        <span itemProp="genre">{project.category}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-{/* Additional Project Images Grid */}
-<div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-  {project.images.map((image, imgIndex) => (
-    <div key={imgIndex} className="relative overflow-hidden rounded-lg shadow-lg group bg-gray-900">
-      <img 
-        src={image} 
-        alt={`${project.title} - Image ${imgIndex + 1}`}
-        className={`w-full h-48 transition-transform duration-500 ${
-          project.title === 'Lohia Dwar & Ambedkar Park' && (imgIndex === 0 || imgIndex === 1 || imgIndex === 3)
-            ? 'object-contain scale-75 hover:scale-90' 
-            : 'object-cover group-hover:scale-105'
-        }`}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-    </div>
-  ))}
-</div>
+              {/* Additional Project Images Grid */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                {project.images.map((image, imgIndex) => (
+                  <div key={imgIndex} className="relative overflow-hidden rounded-lg shadow-lg group bg-gray-900">
+                    <img 
+                      src={image} 
+                      alt={`${project.title} - Additional view ${imgIndex + 1}`}
+                      className={`w-full h-48 transition-transform duration-500 ${
+                        project.title === 'Lohia Dwar & Ambedkar Park' && (imgIndex === 0 || imgIndex === 1 || imgIndex === 3)
+                          ? 'object-contain scale-75 hover:scale-90' 
+                          : 'object-cover group-hover:scale-105'
+                      }`}
+                      width="300"
+                      height="192"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true"></div>
+                  </div>
+                ))}
+              </div>
 
               {/* Project Content */}
               <div className="grid lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2">
                   <h4 className="text-2xl font-bold text-white mb-4">Project Overview</h4>
-                  <p className="text-gray-300 text-lg leading-relaxed mb-6 text-justify">
+                  <p className="text-gray-300 text-lg leading-relaxed mb-6 text-justify" itemProp="description">
                     {project.description}
                   </p>
 
                   <h5 className="text-xl font-bold text-white mb-4">Key Achievements</h5>
-                  <ul className="space-y-3">
+                  <ul className="space-y-3" itemProp="about">
                     {project.details.map((detail, detailIndex) => (
                       <li key={detailIndex} className="flex items-start">
-                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0" aria-hidden="true"></div>
                         <span className="text-gray-300 leading-relaxed text-justify">{detail}</span>
                       </li>
                     ))}
@@ -464,7 +564,7 @@ const ProjectsPage = () => {
                     <div className="space-y-3">
                       <div>
                         <span className="text-sm font-semibold text-gray-400">Client</span>
-                        <p className="text-white">{project.client}</p>
+                        <p className="text-white" itemProp="client">{project.client}</p>
                       </div>
                       <div>
                         <span className="text-sm font-semibold text-gray-400">Area</span>
@@ -486,7 +586,7 @@ const ProjectsPage = () => {
                     <ul className="space-y-2">
                       {project.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3"></div>
+                          <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 flex-shrink-0" aria-hidden="true"></div>
                           <span className="text-gray-300 text-sm">{feature}</span>
                         </li>
                       ))}
@@ -496,19 +596,19 @@ const ProjectsPage = () => {
               </div>
 
               {index < detailedProjects.length - 1 && (
-                <div className="mt-16 pt-8 border-t border-gray-700"></div>
+                <div className="mt-16 pt-8 border-t border-gray-700" aria-hidden="true"></div>
               )}
-            </div>
+            </article>
           ))}
         </div>
-      </section>
+      </main>
 
       {/* Card Projects Section */}
       <section className="py-16 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-6">More Projects</h2>
-            <div className="w-16 h-1 bg-blue-600 mx-auto mb-6"></div>
+            <div className="w-16 h-1 bg-blue-600 mx-auto mb-6" aria-hidden="true"></div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto text-justify">
               Explore our diverse portfolio across different sectors and industries
             </p>
@@ -516,16 +616,17 @@ const ProjectsPage = () => {
 
           {/* Filter Section */}
           <div className="flex items-center justify-center space-x-4 flex-wrap gap-2 mb-10">
-            <Filter className="w-5 h-5 text-gray-300" />
+            <Filter className="w-5 h-5 text-gray-300" aria-hidden="true" />
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 min-h-[44px] touch-manipulation ${
                   selectedCategory === category
                     ? 'bg-blue-600 text-white'
                     : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                 }`}
+                aria-label={`Filter projects by ${category}`}
               >
                 {category}
               </button>
@@ -535,40 +636,50 @@ const ProjectsPage = () => {
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCardProjects.map((project, index) => (
-              <div key={index} className="group bg-black border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+              <article 
+                key={index} 
+                className="group bg-black border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                itemScope 
+                itemType="https://schema.org/CreativeWork"
+              >
                 {/* Image */}
                 <div className="relative overflow-hidden">
                   <img 
                     src={project.image} 
-                    alt={project.title}
+                    alt={`${project.title} - ${project.description.substring(0, 80)}...`}
                     className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                    width="400"
+                    height="256"
+                    loading="lazy"
+                    decoding="async"
+                    itemProp="image"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true"></div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <div className="text-blue-400 text-sm font-semibold mb-2">{project.category}</div>
-                  <h4 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                  <div className="text-blue-400 text-sm font-semibold mb-2" itemProp="genre">{project.category}</div>
+                  <h4 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors" itemProp="name">
                     {project.title}
                   </h4>
-                  <p className="text-gray-300 mb-4 leading-relaxed text-justify">
+                  <p className="text-gray-300 mb-4 leading-relaxed text-justify" itemProp="description">
                     {project.description}
                   </p>
                   
                   {/* Project Details */}
                   <div className="space-y-2">
                     <div className="flex items-center text-gray-400 text-sm">
-                      <MapPin className="w-4 h-4 mr-2" />
-                      {project.location}
+                      <MapPin className="w-4 h-4 mr-2 flex-shrink-0" aria-hidden="true" />
+                      <span itemProp="locationCreated">{project.location}</span>
                     </div>
                     <div className="flex items-center text-gray-400 text-sm">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      {project.year}
+                      <Calendar className="w-4 h-4 mr-2 flex-shrink-0" aria-hidden="true" />
+                      <span itemProp="dateCreated">{project.year}</span>
                     </div>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
@@ -579,7 +690,7 @@ const ProjectsPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6">Our Expertise</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6" aria-hidden="true"></div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto text-justify">
               Specialized lighting solutions across diverse sectors and industries
             </p>
@@ -588,14 +699,14 @@ const ProjectsPage = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
               {projectExpertise.map((expertise, index) => (
-                <div key={index} className="group">
+                <div key={index} className="group" itemScope itemType="https://schema.org/Service">
                   {/* Main Title */}
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300" itemProp="name">
                     {expertise.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-gray-300 mb-6 leading-relaxed text-lg text-justify">
+                  <p className="text-gray-300 mb-6 leading-relaxed text-lg text-justify" itemProp="description">
                     {expertise.description}
                   </p>
 
@@ -605,7 +716,7 @@ const ProjectsPage = () => {
                     <div className="space-y-2">
                       {expertise.projects.map((project, projectIndex) => (
                         <div key={projectIndex} className="flex items-center">
-                          <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 flex-shrink-0"></div>
+                          <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 flex-shrink-0" aria-hidden="true"></div>
                           <span className="text-gray-300">{project}</span>
                         </div>
                       ))}
@@ -618,7 +729,7 @@ const ProjectsPage = () => {
                     <div className="space-y-2">
                       {expertise.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-3 flex-shrink-0"></div>
+                          <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-3 flex-shrink-0" aria-hidden="true"></div>
                           <span className="text-gray-400">{feature}</span>
                         </div>
                       ))}
@@ -627,7 +738,7 @@ const ProjectsPage = () => {
 
                   {/* Consistent Divider - only between rows */}
                   {index < projectExpertise.length - 1 && index % 2 === 1 && (
-                    <div className="col-span-2 mt-8 pt-8 border-t border-gray-700"></div>
+                    <div className="col-span-2 mt-8 pt-8 border-t border-gray-700" aria-hidden="true"></div>
                   )}
                 </div>
               ))}
@@ -637,7 +748,7 @@ const ProjectsPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-4 bg-black border-t border-gray-800">
+      <footer className="py-4 bg-black border-t border-gray-800" role="contentinfo">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
             
@@ -650,34 +761,32 @@ const ProjectsPage = () => {
             <div className="text-center">
               <p className="text-gray-400 text-sm">
                 © 2024 All rights reserved. | 
-                                <span className="text-blue-400 ml-1">Designed with precision, illuminated with passion.</span>
+                <span className="text-blue-400 ml-1">Designed with precision, illuminated with passion.</span>
               </p>
             </div>
 
             {/* Right - Social Media Icons */}
             <div className="flex justify-center md:justify-end items-center space-x-3">
               <p className="text-gray-300 text-sm mr-2">Follow Us:</p>
-              <div className="flex space-x-2">
-                
-
-                <a href="#" className="group">
+              <nav className="flex space-x-2" aria-label="Social Media Links">
+                <a href="#" className="group min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Follow Infra Innovations on Twitter">
                   <div className="p-2 rounded-full bg-gray-800 hover:bg-sky-500 transition-all duration-300 transform hover:scale-110">
-                    <Twitter className="w-3 h-3 text-sky-400 group-hover:text-white" />
+                    <Twitter className="w-3 h-3 text-sky-400 group-hover:text-white" aria-hidden="true" />
                   </div>
                 </a>
 
-                <a href="#" className="group">
+                <a href="#" className="group min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Follow Infra Innovations on Instagram">
                   <div className="p-2 rounded-full bg-gray-800 hover:bg-pink-500 transition-all duration-300 transform hover:scale-110">
-                    <Instagram className="w-3 h-3 text-pink-400 group-hover:text-white" />
+                    <Instagram className="w-3 h-3 text-pink-400 group-hover:text-white" aria-hidden="true" />
                   </div>
                 </a>
 
-                <a href="https://www.linkedin.com/in/rahul-chadha-3a5532268/" target="_blank" and rel="noopener noreferrer" className="group">
+                <a href="https://www.linkedin.com/in/rahul-chadha-3a5532268/" target="_blank" rel="noopener noreferrer" className="group min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Connect with Rahul Chadha on LinkedIn">
                   <div className="p-2 rounded-full bg-gray-800 hover:bg-blue-700 transition-all duration-300 transform hover:scale-110">
-                    <Linkedin className="w-3 h-3 text-blue-500 group-hover:text-blue-400" />
+                    <Linkedin className="w-3 h-3 text-blue-500 group-hover:text-blue-400" aria-hidden="true" />
                   </div>
                 </a>
-              </div>
+              </nav>
             </div>
           </div>
         </div>

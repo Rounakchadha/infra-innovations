@@ -13,9 +13,62 @@ const ContactPage = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Scroll to top when component mounts
+  // SEO and performance optimizations
   useEffect(() => {
+    // Dynamic page title for better SEO
+    document.title = "Contact Infra Innovations | Get Quote for Lighting Solutions Lucknow - Call +91 522 4002393";
+    
+    // Update meta description for contact page
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Contact Infra Innovations for professional lighting solutions in Lucknow. Get free consultation for LED, commercial, stadium lighting projects. Call +91 522 4002393 or visit our office at Sahara Trade Centre, Ayodhya Road.');
+    }
+
+    // Add contact page structured data
+    const contactSchema = {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Infra Innovations",
+      "description": "Contact page for Infra Innovations lighting consultancy",
+      "url": "https://www.infra.org.in/contact",
+      "mainEntity": {
+        "@type": "LocalBusiness",
+        "name": "Infra Innovations",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "401, II Floor, Sahara Trade Centre, Ayodhya Road",
+          "addressLocality": "Lucknow",
+          "addressRegion": "Uttar Pradesh",
+          "postalCode": "226016",
+          "addressCountry": "IN"
+        },
+        "telephone": ["+91 522 4002393", "+91 9415011227"],
+        "email": ["innovvations@gmail.com", "innovations@infra.org.in"],
+        "openingHours": [
+          "Mo-Fr 09:00-18:00",
+          "Sa 10:00-16:00"
+        ],
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "26.8732754",
+          "longitude": "80.9899283"
+        }
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(contactSchema);
+    document.head.appendChild(script);
+
+    // Scroll to top when component mounts
     window.scrollTo(0, 0);
+
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
   }, []);
 
   const handleInputChange = (e) => {
@@ -79,15 +132,17 @@ This message was sent from the Infra Innovations contact form.
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'
         }}
+        role="banner"
+        aria-label="Contact Infra Innovations Hero Section"
       >
-        <div className="absolute inset-0 bg-black/70 z-0"></div>
+        <div className="absolute inset-0 bg-black/70 z-0" aria-hidden="true"></div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Contact <span className="text-blue-400">Us</span>
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6" aria-hidden="true"></div>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
               Ready to illuminate your space? Let's discuss your lighting project and bring your vision to life.
             </p>
@@ -96,114 +151,127 @@ This message was sent from the Infra Innovations contact form.
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-black">
+      <main className="py-20 bg-black">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16">
             
             {/* Contact Form */}
-            <div className="bg-gray-900 border border-gray-700 rounded-2xl p-8 shadow-lg">
+            <section className="bg-gray-900 border border-gray-700 rounded-2xl p-8 shadow-lg">
               <h2 className="text-3xl font-bold text-white mb-6">Get In Touch</h2>
               <p className="text-gray-300 mb-8">
                 Fill out the form below and our team will get back to you within 24 hours.
               </p>
 
               {isSubmitted ? (
-                <div className="text-center py-12">
-                  <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
+                <div className="text-center py-12" role="alert" aria-live="polite">
+                  <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" aria-hidden="true" />
                   <h3 className="text-2xl font-bold text-white mb-2">Thank You!</h3>
                   <p className="text-gray-300">Your email client should have opened with your message. Please send the email to complete your inquiry.</p>
-                  <p className="text-gray-400 text-sm mt-2">If your email client didn't open, please email us directly at: chadharounak@gmail.com</p>
+                  <p className="text-gray-400 text-sm mt-2">If your email client didn't open, please email us directly at: <a href="mailto:chadharounak@gmail.com" className="text-blue-400 hover:text-blue-300">chadharounak@gmail.com</a></p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-semibold text-white mb-2">
+                      <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
                         Full Name *
                       </label>
                       <input
                         type="text"
+                        id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 bg-black border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300"
+                        autoComplete="name"
+                        className="w-full px-4 py-3 bg-black border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 min-h-[44px] touch-manipulation"
                         placeholder="Your full name"
+                        aria-describedby="name-error"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-white mb-2">
+                      <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
                         Email Address *
                       </label>
                       <input
                         type="email"
+                        id="email"
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 bg-black border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300"
+                        autoComplete="email"
+                        className="w-full px-4 py-3 bg-black border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 min-h-[44px] touch-manipulation"
                         placeholder="your.email@example.com"
+                        aria-describedby="email-error"
                       />
                     </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-semibold text-white mb-2">
+                      <label htmlFor="phone" className="block text-sm font-semibold text-white mb-2">
                         Phone Number
                       </label>
                       <input
                         type="tel"
+                        id="phone"
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-black border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300"
+                        autoComplete="tel"
+                        className="w-full px-4 py-3 bg-black border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 min-h-[44px] touch-manipulation"
                         placeholder="+91"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-white mb-2">
+                      <label htmlFor="company" className="block text-sm font-semibold text-white mb-2">
                         Company/Organization
                       </label>
                       <input
                         type="text"
+                        id="company"
                         name="company"
                         value={formData.company}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-black border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300"
+                        autoComplete="organization"
+                        className="w-full px-4 py-3 bg-black border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 min-h-[44px] touch-manipulation"
                         placeholder="Your company name"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-white mb-2">
+                    <label htmlFor="message" className="block text-sm font-semibold text-white mb-2">
                       Project Details *
                     </label>
                     <textarea
+                      id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
                       required
                       rows="6"
-                      className="w-full px-4 py-3 bg-black border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 resize-none"
+                      className="w-full px-4 py-3 bg-black border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 resize-none touch-manipulation"
                       placeholder="Tell us about your project requirements, space details, timeline, and any specific lighting needs..."
+                      aria-describedby="message-error"
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group min-h-[44px] touch-manipulation"
+                    aria-label="Send message to Infra Innovations"
                   >
-                    <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
+                    <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                     Send Message
                   </button>
                 </form>
               )}
-            </div>
+            </section>
 
             {/* Contact Information */}
-            <div className="space-y-8">
+            <section className="space-y-8">
               <div>
                 <h2 className="text-3xl font-bold text-white mb-6">Let's Start a Conversation</h2>
                 <p className="text-gray-300 text-lg leading-relaxed mb-8">
@@ -214,82 +282,81 @@ This message was sent from the Infra Innovations contact form.
               </div>
 
               {/* Contact Cards */}
-              <div className="space-y-6">
+              <div className="space-y-6" itemScope itemType="https://schema.org/LocalBusiness">
                 <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-blue-600 p-3 rounded-lg">
-                      <MapPin className="w-6 h-6 text-white" />
+                    <div className="bg-blue-600 p-3 rounded-lg flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-white" aria-hidden="true" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-white mb-2">Visit Our Office</h3>
-                      <p className="text-gray-300">
-                        Infra Innovations<br />
-                        401, II Floor<br />
+                      <address className="text-gray-300 not-italic" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                        <strong itemProp="name">Infra Innovations</strong><br />
+                        <span itemProp="streetAddress">401, II Floor<br />
                         Sahara Trade Centre<br />
-                        Ayodhya Road<br />
-                        Lucknow - 226016, India
-                      </p>
+                        Ayodhya Road</span><br />
+                        <span itemProp="addressLocality">Lucknow</span> - <span itemProp="postalCode">226016</span>, <span itemProp="addressCountry">India</span>
+                      </address>
                     </div>
                   </div>
                 </div>
 
                 <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-blue-600 p-3 rounded-lg">
-                      <Phone className="w-6 h-6 text-white" />
+                    <div className="bg-blue-600 p-3 rounded-lg flex-shrink-0">
+                      <Phone className="w-6 h-6 text-white" aria-hidden="true" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-white mb-2">Call Us</h3>
-                      <p className="text-gray-300">
-                        +91 522 4002393<br />
-                        +91 9415011227
-                      </p>
+                      <div className="text-gray-300">
+                        <a href="tel:+915224002393" className="hover:text-blue-400 transition-colors block" itemProp="telephone">+91 522 4002393</a>
+                        <a href="tel:+919415011227" className="hover:text-blue-400 transition-colors block" itemProp="telephone">+91 9415011227</a>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-blue-600 p-3 rounded-lg">
-                      <Mail className="w-6 h-6 text-white" />
+                    <div className="bg-blue-600 p-3 rounded-lg flex-shrink-0">
+                      <Mail className="w-6 h-6 text-white" aria-hidden="true" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-white mb-2">Email Us</h3>
-                      <p className="text-gray-300">
-                        innovvations@gmail.com<br />
-                        innovations@infra.org.in
-                      </p>
+                      <div className="text-gray-300">
+                        <a href="mailto:innovvations@gmail.com" className="hover:text-blue-400 transition-colors block" itemProp="email">innovvations@gmail.com</a>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-blue-600 p-3 rounded-lg">
-                      <Clock className="w-6 h-6 text-white" />
+                    <div className="bg-blue-600 p-3 rounded-lg flex-shrink-0">
+                      <Clock className="w-6 h-6 text-white" aria-hidden="true" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-white mb-2">Business Hours</h3>
-                      <p className="text-gray-300">
+                      <div className="text-gray-300" itemProp="openingHours" content="Mo-Fr 09:00-18:00">
                         Monday - Friday: 9:00 AM - 6:00 PM<br />
                         Saturday: 10:00 AM - 4:00 PM<br />
                         Sunday: Closed
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
-      </section>
+      </main>
 
       {/* Interactive Google Maps Section */}
       <section className="py-16 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">Find Us</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6" aria-hidden="true"></div>
             <p className="text-gray-300">Illuminate - A unit of Infra Innovations, Lucknow</p>
           </div>
           
@@ -303,7 +370,7 @@ This message was sent from the Infra Innovations contact form.
               allowFullScreen="" 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
-              title="Illuminate - A unit of Infra Innovations Office Location"
+              title="Illuminate - A unit of Infra Innovations Office Location - Sahara Trade Centre, Ayodhya Road, Lucknow"
             ></iframe>
           </div>
           
@@ -320,7 +387,7 @@ This message was sent from the Infra Innovations contact form.
       </section>
 
       {/* Footer */}
-      <footer className="py-4 bg-black border-t border-gray-800">
+      <footer className="py-4 bg-black border-t border-gray-800" role="contentinfo">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
             
@@ -340,27 +407,25 @@ This message was sent from the Infra Innovations contact form.
             {/* Right - Social Media Icons */}
             <div className="flex justify-center md:justify-end items-center space-x-3">
               <p className="text-gray-300 text-sm mr-2">Follow Us:</p>
-              <div className="flex space-x-2">
-                
-
-                <a href="#" className="group">
+              <nav className="flex space-x-2" aria-label="Social Media Links">
+                <a href="#" className="group min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Follow Infra Innovations on Twitter">
                   <div className="p-2 rounded-full bg-gray-800 hover:bg-sky-500 transition-all duration-300 transform hover:scale-110">
-                    <Twitter className="w-3 h-3 text-sky-400 group-hover:text-white" />
+                    <Twitter className="w-3 h-3 text-sky-400 group-hover:text-white" aria-hidden="true" />
                   </div>
                 </a>
 
-                <a href="#" className="group">
+                <a href="#" className="group min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Follow Infra Innovations on Instagram">
                   <div className="p-2 rounded-full bg-gray-800 hover:bg-pink-500 transition-all duration-300 transform hover:scale-110">
-                    <Instagram className="w-3 h-3 text-pink-400 group-hover:text-white" />
+                    <Instagram className="w-3 h-3 text-pink-400 group-hover:text-white" aria-hidden="true" />
                   </div>
                 </a>
 
-                <a href="https://www.linkedin.com/in/rahul-chadha-3a5532268/" target="_blank" rel="noopener noreferrer" className="group">
+                <a href="https://www.linkedin.com/in/rahul-chadha-3a5532268/" target="_blank" rel="noopener noreferrer" className="group min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Connect with Rahul Chadha on LinkedIn">
                   <div className="p-2 rounded-full bg-gray-800 hover:bg-blue-700 transition-all duration-300 transform hover:scale-110">
-                    <Linkedin className="w-3 h-3 text-blue-500 group-hover:text-blue-400" />
+                    <Linkedin className="w-3 h-3 text-blue-500 group-hover:text-blue-400" aria-hidden="true" />
                   </div>
                 </a>
-              </div>
+              </nav>
             </div>
           </div>
         </div>
