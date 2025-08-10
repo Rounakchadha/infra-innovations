@@ -36,7 +36,7 @@ import ram5 from '../assets/projectpage/ayodhya4.jpg'
 import mall1 from '../assets/projectpage/saharamall.jpg'
 import hotel1 from '../assets/projectpage/saharastar.jpg'
 import hazrat1 from '../assets/projectpage/hazratganj2.jpg'
-import eco1 from '../assets/projectpage/eco.jpg'
+import eco1 from '../assets/projectpage/eco.jpeg'
 import taj1 from '../assets/projectpage/taj1.jpg'
 
 

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../components/layout/Header';
 import { ArrowLeft, MapPin, Phone, Mail, Clock, Send, CheckCircle, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
@@ -24,7 +23,7 @@ const ContactPage = () => {
       metaDescription.setAttribute('content', 'Contact Infra Innovations for professional lighting solutions in Lucknow. Get free consultation for LED, commercial, stadium lighting projects. Call +91 522 4002393 or visit our office at Sahara Trade Centre, Ayodhya Road.');
     }
 
-    // Add contact page structured data with breadcrumb
+    // Add contact page structured data with breadcrumb (SEO only - no visual change)
     const contactSchema = {
       "@context": "https://schema.org",
       "@type": "ContactPage",
@@ -140,24 +139,9 @@ This message was sent from the Infra Innovations contact form.
     <div className="bg-black min-h-screen">
       <Header />
       
-      {/* Breadcrumb Navigation - ADDED */}
-      <nav className="bg-gray-900 py-2" aria-label="Breadcrumb">
-        <div className="container mx-auto px-4">
-          <ol className="flex items-center space-x-2 text-sm">
-            <li>
-              <Link to="/" className="text-blue-400 hover:text-blue-300 font-semibold">
-                Infra Innovations
-              </Link>
-            </li>
-            <li className="text-gray-500">/</li>
-            <li className="text-gray-300">Contact Us</li>
-          </ol>
-        </div>
-      </nav>
-      
       {/* Hero Section */}
       <section 
-        className="pt-16 pb-16 bg-black relative overflow-hidden"
+        className="pt-24 pb-16 bg-black relative overflow-hidden"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80')`,
           backgroundSize: 'cover',

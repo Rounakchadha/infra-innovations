@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../components/layout/Header';
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import founderimg from '../assets/founderpic/founderimg.png';
@@ -16,7 +15,7 @@ const AboutPage = () => {
       metaDescription.setAttribute('content', 'Learn about Infra Innovations - Founded in 2012, we are Lucknow\'s premier lighting consultancy. Meet founder Rahul Chadha and discover our journey in transforming India\'s most prestigious spaces with innovative lighting solutions.');
     }
 
-    // Add page-specific structured data with breadcrumb
+    // Add page-specific structured data with breadcrumb (SEO only - no visual change)
     const aboutSchema = {
       "@context": "https://schema.org",
       "@type": "AboutPage",
@@ -86,24 +85,9 @@ const AboutPage = () => {
     <div>
       <Header />
       
-      {/* Breadcrumb Navigation - ADDED */}
-      <nav className="bg-gray-900 py-2" aria-label="Breadcrumb">
-        <div className="container mx-auto px-4">
-          <ol className="flex items-center space-x-2 text-sm">
-            <li>
-              <Link to="/" className="text-blue-400 hover:text-blue-300 font-semibold">
-                Infra Innovations
-              </Link>
-            </li>
-            <li className="text-gray-500">/</li>
-            <li className="text-gray-300">About Us</li>
-          </ol>
-        </div>
-      </nav>
-      
       {/* Hero Section with Night City Background */}
       <section 
-        className="pt-16 pb-16 bg-black relative overflow-hidden"
+        className="pt-24 pb-16 bg-black relative overflow-hidden"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80')`,
           backgroundSize: 'cover',
