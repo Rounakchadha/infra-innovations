@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/layout/Header';
 import { ArrowLeft, MapPin, Phone, Mail, Clock, Send, CheckCircle, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -16,7 +16,7 @@ const ContactPage = () => {
   // SEO and performance optimizations
   useEffect(() => {
     // Dynamic page title for better SEO
-   document.title = "Contact Us - Infra Innovations";  // Secondary page
+    document.title = "Contact Us - Infra Innovations";  // Secondary page
     
     // Update meta description for contact page
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -24,13 +24,30 @@ const ContactPage = () => {
       metaDescription.setAttribute('content', 'Contact Infra Innovations for professional lighting solutions in Lucknow. Get free consultation for LED, commercial, stadium lighting projects. Call +91 522 4002393 or visit our office at Sahara Trade Centre, Ayodhya Road.');
     }
 
-    // Add contact page structured data
+    // Add contact page structured data with breadcrumb
     const contactSchema = {
       "@context": "https://schema.org",
       "@type": "ContactPage",
       "name": "Contact Infra Innovations",
       "description": "Contact page for Infra Innovations lighting consultancy",
       "url": "https://www.infra.org.in/contact",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.infra.org.in/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contact",
+            "item": "https://www.infra.org.in/contact"
+          }
+        ]
+      },
       "mainEntity": {
         "@type": "LocalBusiness",
         "name": "Infra Innovations",
@@ -123,9 +140,24 @@ This message was sent from the Infra Innovations contact form.
     <div className="bg-black min-h-screen">
       <Header />
       
+      {/* Breadcrumb Navigation - ADDED */}
+      <nav className="bg-gray-900 py-2" aria-label="Breadcrumb">
+        <div className="container mx-auto px-4">
+          <ol className="flex items-center space-x-2 text-sm">
+            <li>
+              <Link to="/" className="text-blue-400 hover:text-blue-300 font-semibold">
+                Infra Innovations
+              </Link>
+            </li>
+            <li className="text-gray-500">/</li>
+            <li className="text-gray-300">Contact Us</li>
+          </ol>
+        </div>
+      </nav>
+      
       {/* Hero Section */}
       <section 
-        className="pt-24 pb-16 bg-black relative overflow-hidden"
+        className="pt-16 pb-16 bg-black relative overflow-hidden"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80')`,
           backgroundSize: 'cover',
