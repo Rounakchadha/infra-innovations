@@ -341,11 +341,7 @@ This message was sent from the Infra Innovations contact form.
             <div className="flex justify-center md:justify-end items-center space-x-3">
               <p className="text-gray-300 text-sm mr-2">Follow Us:</p>
               <div className="flex space-x-2">
-                <a href="#" className="group">
-                  <div className="p-2 rounded-full bg-gray-800 hover:bg-blue-600 transition-all duration-300 transform hover:scale-110">
-                    <Facebook className="w-3 h-3 text-blue-400 group-hover:text-white" />
-                  </div>
-                </a>
+                
 
                 <a href="#" className="group">
                   <div className="p-2 rounded-full bg-gray-800 hover:bg-sky-500 transition-all duration-300 transform hover:scale-110">
