@@ -56,7 +56,7 @@ const Hero = () => {
 
   // SEO optimizations (behind the scenes only)
   useEffect(() => {
-    document.title = "Infra Innovations | Leading Lighting Company Lucknow - Architectural Excellence";
+    document.title = "Infra Innovations | Lighting Excellence";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
