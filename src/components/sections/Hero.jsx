@@ -54,15 +54,8 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
 
-  // SEO optimizations (behind the scenes only)
-  useEffect(() => {
-    document.title = "Infra Innovations | Lighting Excellence";
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Infra Innovations - Transforming India\'s most prestigious spaces with innovative lighting solutions. Leading lighting consultancy in Lucknow specializing in LED, commercial, and stadium lighting.');
-    }
-  }, []);
+  // REMOVED: SEO useEffect that was setting document.title
+  // Section components should NOT set page titles
 
   return (
     <section id="home" className="relative min-h-screen flex items-end justify-center overflow-hidden pb-24">
