@@ -7,7 +7,8 @@ const AboutPage = () => {
   // SEO and performance optimizations
   useEffect(() => {
     // Dynamic page title for better SEO
-    document.title = "About Infra Innovations | Leading Lighting Consultancy Lucknow - Our Story & Founder";
+     document.title = "About Us - Infra Innovations";  // Secondary page
+ 
     
     // Update meta description for this specific page
     const metaDescription = document.querySelector('meta[name="description"]');

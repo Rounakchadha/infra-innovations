@@ -9,13 +9,13 @@ import Contact from '../components/sections/Contact';
 const Home = () => {
   // Critical SEO optimizations for homepage to rank #1
   useEffect(() => {
-    // FIXED: Clean, professional title as requested
-    document.title = "Infra Innovations | Lighting Excellence";
+    // IMPROVED: Stronger, more authoritative title without generic "Home"
+    document.title = "Infra Innovations - Leading Lighting Company in Lucknow | Official Website";
     
     // Update meta description with comprehensive content
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Infra Innovations - Lucknow\'s leading lighting consultancy. Expert LED lighting, commercial lighting, stadium lighting solutions. 100+ prestigious projects including Lucknow High Court, Ekana Stadium, Ayodhya Ram Path. BCCI-approved lighting. Contact: +91 522 4002393');
+      metaDescription.setAttribute('content', 'Welcome to Infra Innovations official website. Lucknow\'s #1 lighting consultancy company specializing in LED lighting, commercial lighting, stadium lighting solutions. 100+ prestigious projects including Lucknow High Court, Ekana Stadium, Ayodhya Ram Path. BCCI-approved lighting. Contact: +91 522 4002393');
     }
 
     // Add canonical tag to establish this as the main page
@@ -23,6 +23,28 @@ const Home = () => {
     canonicalLink.rel = 'canonical';
     canonicalLink.href = 'https://www.infra.org.in/';
     document.head.appendChild(canonicalLink);
+
+    // IMPROVED: Add isPartOf to establish homepage as primary
+    const homePageSchema = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Infra Innovations Official Homepage",
+      "description": "Official homepage of Infra Innovations - Leading lighting consultancy in Lucknow",
+      "url": "https://www.infra.org.in/",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Infra Innovations Home",
+          "item": "https://www.infra.org.in/"
+        }]
+      },
+      "mainEntity": {
+        "@type": "Organization",
+        "@id": "https://www.infra.org.in/#organization"
+      }
+    };
 
     // Add homepage-specific structured data
     const homeSchema = {
@@ -57,7 +79,7 @@ const Home = () => {
       "itemListElement": [{
         "@type": "ListItem",
         "position": 1,
-        "name": "Home",
+        "name": "Infra Innovations",
         "item": "https://www.infra.org.in/"
       }]
     };
@@ -130,7 +152,7 @@ const Home = () => {
 
     // Create script elements for all schemas
     const scripts = [];
-    [homeSchema, breadcrumbSchema, organizationSchema].forEach((schema) => {
+    [homePageSchema, homeSchema, breadcrumbSchema, organizationSchema].forEach((schema) => {
       const script = document.createElement('script');
       script.type = 'application/ld+json';
       script.text = JSON.stringify(schema);
@@ -140,7 +162,7 @@ const Home = () => {
 
     // Add Open Graph meta tags for better social sharing
     const ogTags = [
-      { property: 'og:title', content: 'Infra Innovations - Leading Lighting Company in Lucknow' },
+      { property: 'og:title', content: 'Infra Innovations - Leading Lighting Company in Lucknow | Official Website' },
       { property: 'og:description', content: 'Expert LED lighting, commercial lighting, stadium lighting solutions. 100+ prestigious projects across Uttar Pradesh.' },
       { property: 'og:url', content: 'https://www.infra.org.in/' },
       { property: 'og:type', content: 'website' },
@@ -181,6 +203,11 @@ const Home = () => {
     <div itemScope itemType="https://schema.org/WebPage">
       <Header />
       <main role="main" aria-label="Infra Innovations Homepage Content">
+        {/* Hidden SEO content to establish homepage authority */}
+        <div className="sr-only">
+          <h1>Infra Innovations - Official Homepage</h1>
+          <p>Welcome to the official website of Infra Innovations, Lucknow's premier lighting consultancy company.</p>
+        </div>
         <Hero />
         <About />
         <Partners />

@@ -16,7 +16,7 @@ const ContactPage = () => {
   // SEO and performance optimizations
   useEffect(() => {
     // Dynamic page title for better SEO
-    document.title = "Contact Infra Innovations | Get Quote for Lighting Solutions Lucknow - Call +91 522 4002393";
+   document.title = "Contact Us - Infra Innovations";  // Secondary page
     
     // Update meta description for contact page
     const metaDescription = document.querySelector('meta[name="description"]');
