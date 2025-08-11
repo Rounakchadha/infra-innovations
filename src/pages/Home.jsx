@@ -10,7 +10,7 @@ const Home = () => {
   // Critical SEO optimizations for homepage to rank #1
   useEffect(() => {
     // IMPROVED: Stronger, more authoritative title without generic "Home"
-    document.title = "Infra Innovations - Leading Lighting Company in Lucknow | Official Website";
+    document.title = "Infra Innovations | Lighting Excellence | Official Website";
     
     // Update meta description with comprehensive content
     const metaDescription = document.querySelector('meta[name="description"]');
