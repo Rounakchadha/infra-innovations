@@ -15,7 +15,7 @@ const Home = () => {
     // Update meta description with comprehensive content
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Welcome to Infra Innovations official website. Lucknow\'s #1 lighting consultancy company specializing in LED lighting, commercial lighting, stadium lighting solutions. 100+ prestigious projects including Lucknow High Court, Ekana Stadium, Ayodhya Ram Path. BCCI-approved lighting. Contact: +91 522 4002393');
+      metaDescription.setAttribute('content', 'Welcome to Infra Innovations official website. We are a lighting consultancy company based off in Lucknow specializing in LED lighting, commercial lighting, stadium lighting solutions. 100+ prestigious projects including Lucknow High Court, Ekana Stadium (BCCI Approved), Ayodhya Ram Path. Contact: +91 522 4002393');
     }
 
     // Add canonical tag to establish this as the main page
