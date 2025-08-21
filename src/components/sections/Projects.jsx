@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin, Calendar, Users } from 'lucide-react';
 
@@ -13,7 +13,10 @@ import ramhero from '../../assets/ram/ramMandir.jpg';
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
-  
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const [isSwiping, setIsSwiping] = useState(false);
+  const autoPlayRef = useRef(null);
 
   // Array of all projects
   const allProjects = [
@@ -88,13 +91,30 @@ const Projects = () => {
   // Create infinite loop array - duplicate projects for seamless transition
   const infiniteProjects = [...allProjects, ...allProjects, ...allProjects];
 
-  // Auto-slide with true infinite forward loop
-  useEffect(() => {
-    const interval = setInterval(() => {
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50;
+
+  // Start autoplay
+  const startAutoPlay = () => {
+    if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+    
+    autoPlayRef.current = setInterval(() => {
       setCurrentIndex((prevIndex) => prevIndex + 1);
     }, 8000);
+  };
 
-    return () => clearInterval(interval);
+  // Stop autoplay
+  const stopAutoPlay = () => {
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+      autoPlayRef.current = null;
+    }
+  };
+
+  // Auto-slide with true infinite forward loop
+  useEffect(() => {
+    startAutoPlay();
+    return () => stopAutoPlay();
   }, []);
 
   // Handle seamless reset for infinite loop
@@ -110,6 +130,50 @@ const Projects = () => {
       return () => clearTimeout(timer);
     }
   }, [currentIndex, allProjects.length]);
+
+  // Touch event handlers
+  const onTouchStart = (e) => {
+    setTouchEnd(0); // Reset touch end
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsSwiping(true);
+    stopAutoPlay(); // Stop auto-play during swipe
+  };
+
+  const onTouchMove = (e) => {
+    if (!isSwiping) return;
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) {
+      setIsSwiping(false);
+      startAutoPlay(); // Resume auto-play
+      return;
+    }
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      // Swipe left - go to next
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+    } else if (isRightSwipe && currentIndex > 0) {
+      // Swipe right - go to previous
+      setCurrentIndex((prevIndex) => prevIndex - 1);
+    }
+
+    setIsSwiping(false);
+    startAutoPlay(); // Resume auto-play after swipe
+  };
+
+  // Handle manual navigation via dots
+  const handleDotClick = (index) => {
+    setIsTransitioning(true);
+    setCurrentIndex(allProjects.length + index); // Jump to middle set + index
+    stopAutoPlay();
+    startAutoPlay(); // Restart auto-play
+  };
 
   // Get the actual project index for indicators
   const getActualIndex = (index) => index % allProjects.length;
@@ -128,18 +192,24 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Projects Container - Infinite Forward Loop */}
-        <div className="relative overflow-hidden mb-12">
+        {/* Projects Container - Infinite Forward Loop with Touch Support */}
+        <div 
+          className="relative overflow-hidden mb-12"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
           <div 
-            className={`flex gap-6 ${isTransitioning ? 'transition-transform duration-1000 ease-in-out' : ''}`}
+            className={`flex gap-6 ${isTransitioning && !isSwiping ? 'transition-transform duration-1000 ease-in-out' : ''}`}
             style={{
               transform: `translateX(-${currentIndex * 336}px)`, // 320px width + 16px gap
+              cursor: isSwiping ? 'grabbing' : 'grab'
             }}
           >
             {infiniteProjects.map((project, index) => (
               <div
                 key={`${project.id}-${Math.floor(index / allProjects.length)}-${index}`}
-                className="flex-shrink-0 w-80"
+                className="flex-shrink-0 w-80 select-none"
               >
                 <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2 h-full">
                   {/* Project Image */}
@@ -148,6 +218,7 @@ const Projects = () => {
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      draggable="false"
                       onError={(e) => {
                         e.target.src = 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
                       }}
@@ -195,21 +266,24 @@ const Projects = () => {
         </div>
 
         {/* Progress Indicators - Only show original 6 dots */}
-        <div className="flex justify-center space-x-2 mb-8">
+        <div className="flex justify-center items-center space-x-2 mb-8">
           {allProjects.map((_, index) => (
             <button
               key={index}
-              onClick={() => {
-                setIsTransitioning(true);
-                setCurrentIndex(allProjects.length + index); // Jump to middle set + index
-              }}
+              onClick={() => handleDotClick(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 getActualIndex(currentIndex) === index
                   ? 'bg-blue-400 scale-110'
                   : 'bg-gray-600 hover:bg-gray-500'
               }`}
+              aria-label={`Go to project ${index + 1}`}
             />
           ))}
+        </div>
+
+        {/* Mobile Swipe Hint */}
+        <div className="text-center text-gray-400 text-sm mb-8 md:hidden">
+          <p>Swipe left or right to navigate</p>
         </div>
 
         {/* View All Projects Button */}
