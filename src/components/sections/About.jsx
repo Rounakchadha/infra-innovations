@@ -51,9 +51,9 @@ const About = () => {
           
           {/* Mobile content wrapper with floating image */}
           <div className="relative">
-            {/* Floating Image Carousel - Smaller and floats right */}
-            <div className="float-right ml-4 mb-4 w-32 sm:w-40">
-              <div className="relative h-40 sm:h-48 rounded-lg overflow-hidden shadow-lg">
+            {/* Floating Image Carousel - Bigger size */}
+            <div className="float-right ml-4 mb-4 w-36 sm:w-44">
+              <div className="relative h-44 sm:h-52 rounded-lg overflow-hidden shadow-lg">
                 {/* All carousel images */}
                 {carouselImages.map((image, index) => (
                   <div
@@ -79,8 +79,8 @@ const About = () => {
               </div>
             </div>
 
-            {/* Text content that wraps around the image */}
-            <div className="text-gray-300 leading-relaxed text-base text-justify">
+            {/* Text content with improved text wrapping */}
+            <div className="text-gray-300 leading-relaxed text-base" style={{ textAlign: 'justify', wordSpacing: '0.05em', hyphens: 'auto' }}>
               <p className="mb-4">
                 Founded with a vision to illuminate India's architectural marvels, Infra Innovations has emerged as a leading force in the lighting design industry. Our journey began with a simple belief: that exceptional lighting can transform ordinary spaces into extraordinary experiences.
               </p>
@@ -96,14 +96,14 @@ const About = () => {
             <div className="clear-both"></div>
           </div>
 
-          {/* Mobile Learn More Button */}
+          {/* Mobile Learn More Button - Smaller size */}
           <div className="mt-6">
             <Link 
               to="/about"
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg transition-all duration-300 text-base group"
+              className="inline-flex items-center px-4 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg transition-all duration-300 text-sm group"
             >
               <span>Learn More About Us</span>
-              <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
