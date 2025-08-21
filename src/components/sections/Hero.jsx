@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import heroImage1 from '../../assets/hero/hero1.webp';
-import heroImage2 from '../../assets/hero/hero2.webp';
-import heroImage3 from '../../assets/hero/hero3.webp';
-import heroImage4 from '../../assets/hero/hero4.webp';
+import heroImage1 from '../../assets/hero/hero1.avif';
+import heroImage2 from '../../assets/hero/hero2.avif';
+import heroImage3 from '../../assets/hero/hero3.avif';
+import heroImage4 from '../../assets/hero/hero4.avif';
 
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
