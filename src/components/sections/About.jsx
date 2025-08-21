@@ -79,15 +79,24 @@ const About = () => {
               </div>
             </div>
 
-            {/* Text content with better text flow */}
-            <div className="text-gray-300 leading-relaxed text-sm xs:text-base">
-              <p className="mb-4" style={{ textAlign: 'left' }}>
+            {/* Text content with better justification */}
+            <div 
+              className="text-gray-300 leading-relaxed text-sm xs:text-base"
+              style={{ 
+                textAlign: 'justify',
+                textJustify: 'inter-word',
+                WebkitHyphens: 'auto',
+                MozHyphens: 'auto',
+                hyphens: 'auto'
+              }}
+            >
+              <p className="mb-4">
                 Founded with a vision to illuminate India's architectural marvels, Infra Innovations has emerged as a leading force in the lighting design industry. Our journey began with a simple belief: that exceptional lighting can transform ordinary spaces into extraordinary experiences.
               </p>
-              <p className="mb-4" style={{ textAlign: 'left' }}>
+              <p className="mb-4">
                 From the prestigious corridors of the Lucknow High Court to the cultural heritage sites of Ayodhya, we have consistently delivered lighting solutions that not only meet technical requirements but also enhance the aesthetic and functional value of each space.
               </p>
-              <p className="mb-4" style={{ textAlign: 'left' }}>
+              <p className="mb-4">
                 Our expertise spans across government buildings, cultural landmarks, commercial complexes, and heritage sites, making us the trusted partner for India's most significant architectural projects.
               </p>
             </div>
