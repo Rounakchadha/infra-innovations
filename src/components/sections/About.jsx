@@ -51,9 +51,9 @@ const About = () => {
           
           {/* Mobile content wrapper with floating image */}
           <div className="relative">
-            {/* Floating Image Carousel - Much bigger size */}
-            <div className="float-right ml-4 mb-4 w-40 sm:w-48">
-              <div className="relative h-56 sm:h-64 rounded-lg overflow-hidden shadow-lg">
+            {/* Floating Image Carousel - Sized to match first paragraph */}
+            <div className="float-right ml-3 mb-3 w-44 xs:w-48">
+              <div className="relative h-48 xs:h-52 rounded-lg overflow-hidden shadow-lg">
                 {/* All carousel images */}
                 {carouselImages.map((image, index) => (
                   <div
@@ -79,15 +79,15 @@ const About = () => {
               </div>
             </div>
 
-            {/* Text content with improved text wrapping */}
-            <div className="text-gray-300 leading-relaxed text-base" style={{ textAlign: 'justify', wordSpacing: '0.05em', hyphens: 'auto' }}>
-              <p className="mb-4">
+            {/* Text content with better text flow */}
+            <div className="text-gray-300 leading-relaxed text-sm xs:text-base">
+              <p className="mb-4" style={{ textAlign: 'left' }}>
                 Founded with a vision to illuminate India's architectural marvels, Infra Innovations has emerged as a leading force in the lighting design industry. Our journey began with a simple belief: that exceptional lighting can transform ordinary spaces into extraordinary experiences.
               </p>
-              <p className="mb-4">
+              <p className="mb-4" style={{ textAlign: 'left' }}>
                 From the prestigious corridors of the Lucknow High Court to the cultural heritage sites of Ayodhya, we have consistently delivered lighting solutions that not only meet technical requirements but also enhance the aesthetic and functional value of each space.
               </p>
-              <p className="mb-4">
+              <p className="mb-4" style={{ textAlign: 'left' }}>
                 Our expertise spans across government buildings, cultural landmarks, commercial complexes, and heritage sites, making us the trusted partner for India's most significant architectural projects.
               </p>
             </div>
