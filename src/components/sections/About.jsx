@@ -45,36 +45,14 @@ const About = () => {
           <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto"></div>
         </div>
 
-        {/* Main Content - Modified for mobile side-by-side layout */}
-        <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-16 items-start md:items-center">
-          {/* Mobile Layout - Side by side on small screens */}
-          <div className="md:hidden flex gap-4">
-            {/* Mobile Text Column */}
-            <div className="flex-1">
-              <h3 className="text-xl font-bold text-white mb-4">Our Story</h3>
-              <div className="space-y-3 text-gray-300 leading-relaxed text-sm text-justify">
-                <p>
-                  Founded with a vision to illuminate India's architectural marvels, Infra Innovations has emerged as a leading force in the lighting design industry.
-                </p>
-                <p className="hidden sm:block">
-                  From prestigious government buildings to cultural heritage sites, we deliver exceptional lighting solutions.
-                </p>
-              </div>
-
-              {/* Mobile Learn More Button */}
-              <div className="mt-4">
-                <Link 
-                  to="/about"
-                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg transition-all duration-300 text-sm group"
-                >
-                  <span>Learn More</span>
-                  <ArrowRight className="ml-1 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Mobile Image Carousel - Smaller and on the side */}
-            <div className="w-32 sm:w-40 flex-shrink-0">
+        {/* Mobile Layout - Text with floating image */}
+        <div className="md:hidden">
+          <h3 className="text-2xl font-bold text-white mb-6">Our Story</h3>
+          
+          {/* Mobile content wrapper with floating image */}
+          <div className="relative">
+            {/* Floating Image Carousel - Smaller and floats right */}
+            <div className="float-right ml-4 mb-4 w-32 sm:w-40">
               <div className="relative h-40 sm:h-48 rounded-lg overflow-hidden shadow-lg">
                 {/* All carousel images */}
                 {carouselImages.map((image, index) => (
@@ -93,17 +71,47 @@ const About = () => {
                 
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-              </div>
-
-              {/* Mobile image counter */}
-              <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs font-medium">
-                {currentImageIndex + 1}/{carouselImages.length}
+                
+                {/* Mobile image counter */}
+                <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm text-white px-2 py-0.5 rounded-full text-xs font-medium">
+                  {currentImageIndex + 1}/{carouselImages.length}
+                </div>
               </div>
             </div>
+
+            {/* Text content that wraps around the image */}
+            <div className="text-gray-300 leading-relaxed text-base text-justify">
+              <p className="mb-4">
+                Founded with a vision to illuminate India's architectural marvels, Infra Innovations has emerged as a leading force in the lighting design industry. Our journey began with a simple belief: that exceptional lighting can transform ordinary spaces into extraordinary experiences.
+              </p>
+              <p className="mb-4">
+                From the prestigious corridors of the Lucknow High Court to the cultural heritage sites of Ayodhya, we have consistently delivered lighting solutions that not only meet technical requirements but also enhance the aesthetic and functional value of each space.
+              </p>
+              <p className="mb-4">
+                Our expertise spans across government buildings, cultural landmarks, commercial complexes, and heritage sites, making us the trusted partner for India's most significant architectural projects.
+              </p>
+            </div>
+
+            {/* Clear float to ensure button appears below */}
+            <div className="clear-both"></div>
           </div>
 
-          {/* Desktop/Tablet Layout - Original layout for larger screens */}
-          <div className="hidden md:block">
+          {/* Mobile Learn More Button */}
+          <div className="mt-6">
+            <Link 
+              to="/about"
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg transition-all duration-300 text-base group"
+            >
+              <span>Learn More About Us</span>
+              <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Desktop/Tablet Layout - Original grid layout */}
+        <div className="hidden md:grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Column - Our Story */}
+          <div>
             <h3 className="text-3xl font-bold text-white mb-8">Our Story</h3>
             <div className="space-y-6 text-gray-300 leading-relaxed text-lg text-justify">
               <p>
@@ -129,8 +137,8 @@ const About = () => {
             </div>
           </div>
 
-          {/* Desktop/Tablet Image Carousel - Original size for larger screens */}
-          <div className="hidden md:block relative">
+          {/* Right Column - Image Carousel */}
+          <div className="relative">
             <div className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               {/* All carousel images */}
               {carouselImages.map((image, index) => (
