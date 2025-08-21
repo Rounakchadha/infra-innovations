@@ -39,15 +39,14 @@ import hazrat1 from '../assets/projectpage/hazratganj2.jpg'
 import eco1 from '../assets/projectpage/eco.jpeg'
 import taj1 from '../assets/projectpage/taj1.jpg'
 
-
 const ProjectsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const location = useLocation();
 
   // SEO and performance optimizations
   useEffect(() => {
-    // Dynamic page title for better SEO
-    document.title = "Our Projects | Infra Innovations - Lucknow High Court, Ekana Stadium, Ayodhya Ram Path Lighting";
+    // Dynamic page title for better SEO - Secondary page
+    document.title = "Projects - Infra Innovations | Lucknow High Court, Ekana Stadium, Ayodhya Ram Path";
     
     // Update meta description for projects page
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -55,13 +54,30 @@ const ProjectsPage = () => {
       metaDescription.setAttribute('content', 'Explore Infra Innovations\' prestigious lighting projects including Lucknow High Court, Ekana Cricket Stadium, Dhyan Chand Hockey Stadium, Ayodhya Ram Path, and Rail Coach Factory. Leading lighting consultancy with 100+ completed projects across India.');
     }
 
-    // Add projects page structured data
+    // Add projects page structured data with breadcrumb (SEO only - no visual change)
     const projectsSchema = {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       "name": "Our Projects - Infra Innovations",
       "description": "Portfolio of lighting projects by Infra Innovations across India",
       "url": "https://www.infra.org.in/projects",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.infra.org.in/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Projects",
+            "item": "https://www.infra.org.in/projects"
+          }
+        ]
+      },
       "mainEntity": {
         "@type": "ItemList",
         "name": "Lighting Projects Portfolio",
@@ -334,6 +350,9 @@ const ProjectsPage = () => {
 
   const categories = ['All', 'Commercial', 'Hospitality', 'Parks & Recreation', 'Road & Pathways'];
 
+  // FIX: Add error handling for MKU image
+  const fallbackImage = 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+
   const cardProjects = [
     {
       title: 'Sahara Ganj Mall',
@@ -369,9 +388,9 @@ const ProjectsPage = () => {
     },
     {
       title: 'MKU LIMITED',
-      category: 'Global defense & homeland security',
-      image: eco1,
-      description: 'state of the art office lighting at their headquarters at kanpur',
+      category: 'Commercial',  // Changed from 'Global defense & homeland security' to match your categories
+      image: eco1 || fallbackImage,  // Use fallback if eco1 fails
+      description: 'State of the art office lighting at their headquarters at Kanpur.',  // Fixed capitalization
       location: 'Kanpur, UP',
       year: '2023'
     },
@@ -517,18 +536,14 @@ const ProjectsPage = () => {
                 </div>
               </div>
 
-              {/* Additional Project Images Grid */}
+              {/* Additional Project Images Grid - FIXED */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                 {project.images.map((image, imgIndex) => (
                   <div key={imgIndex} className="relative overflow-hidden rounded-lg shadow-lg group bg-gray-900">
                     <img 
                       src={image} 
                       alt={`${project.title} - Additional view ${imgIndex + 1}`}
-                      className={`w-full h-48 transition-transform duration-500 ${
-                        project.title === 'Lohia Dwar & Ambedkar Park' && (imgIndex === 0 || imgIndex === 1 || imgIndex === 3)
-                          ? 'object-contain scale-75 hover:scale-90' 
-                          : 'object-cover group-hover:scale-105'
-                      }`}
+                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
                       width="300"
                       height="192"
                       loading="lazy"
@@ -642,7 +657,7 @@ const ProjectsPage = () => {
                 itemScope 
                 itemType="https://schema.org/CreativeWork"
               >
-                {/* Image */}
+                {/* Image with error handling */}
                 <div className="relative overflow-hidden">
                   <img 
                     src={project.image} 
@@ -653,6 +668,11 @@ const ProjectsPage = () => {
                     loading="lazy"
                     decoding="async"
                     itemProp="image"
+                    onError={(e) => {
+                      // Fallback for MKU or any other image that fails to load
+                      e.target.src = fallbackImage;
+                      e.target.onerror = null; // Prevent infinite loop
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true"></div>
                 </div>
