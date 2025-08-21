@@ -51,9 +51,9 @@ const About = () => {
           
           {/* Mobile content wrapper with floating image */}
           <div className="relative">
-            {/* Floating Image Carousel - Bigger size */}
-            <div className="float-right ml-4 mb-4 w-36 sm:w-44">
-              <div className="relative h-44 sm:h-52 rounded-lg overflow-hidden shadow-lg">
+            {/* Floating Image Carousel - Much bigger size */}
+            <div className="float-right ml-4 mb-4 w-40 sm:w-48">
+              <div className="relative h-56 sm:h-64 rounded-lg overflow-hidden shadow-lg">
                 {/* All carousel images */}
                 {carouselImages.map((image, index) => (
                   <div
