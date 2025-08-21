@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MapPin, Calendar, Users } from 'lucide-react';
+import { ArrowRight, MapPin, Calendar, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import your local images
 import highCourtHero from '../../assets/high_court/high_hero.jpg';
@@ -18,7 +18,7 @@ const Projects = () => {
   const [isSwiping, setIsSwiping] = useState(false);
   const autoPlayRef = useRef(null);
 
-  // Array of all projects
+  // Array of all projects - FIXED THE ANCHOR NAMES
   const allProjects = [
     {
       id: 1,
@@ -40,7 +40,7 @@ const Projects = () => {
       image: ekanahero,
       description: 'International cricket stadium featuring BCCI-approved floodlights with record-breaking lighting poles - the highest floodlight installation in India, meeting world-class standards.',
       client: 'Sports Authority of India',
-      anchor: 'lucknow-kana-stadium'
+      anchor: 'lucknow-ekana-stadium'
     },
     {
       id: 3,
@@ -55,18 +55,18 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: 'Lohia Dwar',
+      title: 'Lohia Dwar & Ambedkar Park',
       location: 'Lucknow, Uttar Pradesh',
       year: '2024',
       category: 'Cultural & Heritage',
       image: lohiahero,
       description: 'Majestic gateway structure lighting marking the grand entrance to Gomti Nagar, transforming Lohia Path into a luminous boulevard of architectural excellence.',
       client: 'Lucknow Development Authority',
-      anchor: 'lohia-dwar'
+      anchor: 'lohia-dwar-ambedkar-park'
     },
     {
       id: 5,
-      title: 'Modern Rail-Coach Factory',
+      title: 'Rail Coach Factory',
       location: 'Raebareli, Uttar Pradesh',
       year: '2023',
       category: 'Industrial Infrastructure',
@@ -77,14 +77,14 @@ const Projects = () => {
     },
     {
       id: 6,
-      title: 'Dhyan Chand Stadium',
+      title: 'Dhyan Chand Hockey Stadium',
       location: 'Jhansi, Uttar Pradesh',
       year: '2024',
       category: 'Sports & Recreation',
       image: jhansihero,
       description: 'Premier hockey stadium lighting honoring the legendary Major Dhyan Chand, featuring professional-grade sports illumination for international tournaments.',
       client: 'Sports Authority of Uttar Pradesh',
-      anchor: 'dhyan-chand-stadium'
+      anchor: 'dhyanchand-hockey-stadium'
     }
   ];
 
@@ -167,6 +167,21 @@ const Projects = () => {
     startAutoPlay(); // Resume auto-play after swipe
   };
 
+  // Arrow navigation handlers
+  const handlePrevious = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prevIndex) => prevIndex - 1);
+      stopAutoPlay();
+      startAutoPlay();
+    }
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => prevIndex + 1);
+    stopAutoPlay();
+    startAutoPlay();
+  };
+
   // Handle manual navigation via dots
   const handleDotClick = (index) => {
     setIsTransitioning(true);
@@ -192,76 +207,101 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Projects Container - Infinite Forward Loop with Touch Support */}
-        <div 
-          className="relative overflow-hidden mb-12"
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
-          <div 
-            className={`flex gap-6 ${isTransitioning && !isSwiping ? 'transition-transform duration-1000 ease-in-out' : ''}`}
-            style={{
-              transform: `translateX(-${currentIndex * 336}px)`, // 320px width + 16px gap
-              cursor: isSwiping ? 'grabbing' : 'grab'
-            }}
+        {/* Projects Container with Arrow Navigation */}
+        <div className="relative">
+          {/* Left Arrow - Desktop Only */}
+          <button
+            onClick={handlePrevious}
+            className={`hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/80 hover:bg-black/90 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 items-center justify-center group ${
+              currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
+            disabled={currentIndex === 0}
+            aria-label="Previous project"
           >
-            {infiniteProjects.map((project, index) => (
-              <div
-                key={`${project.id}-${Math.floor(index / allProjects.length)}-${index}`}
-                className="flex-shrink-0 w-80 select-none"
-              >
-                <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2 h-full">
-                  {/* Project Image */}
-                  <div className="relative overflow-hidden h-48">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      draggable="false"
-                      onError={(e) => {
-                        e.target.src = 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                      {project.category}
-                    </div>
-                  </div>
+            <ChevronLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
+          </button>
 
-                  {/* Project Content */}
-                  <div className="p-5">
-                    <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-600 mb-3 leading-relaxed text-sm line-clamp-2">
-                      {project.description}
-                    </p>
+          {/* Right Arrow - Desktop Only */}
+          <button
+            onClick={handleNext}
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/80 hover:bg-black/90 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 items-center justify-center group"
+            aria-label="Next project"
+          >
+            <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+          </button>
 
-                    {/* Project Details */}
-                    <div className="space-y-1 mb-4">
-                      <div className="flex items-center text-xs text-gray-500">
-                        <MapPin className="w-3 h-3 mr-2 text-blue-600" />
-                        {project.location}
+          {/* Projects Carousel */}
+          <div 
+            className="relative overflow-hidden mb-12 px-12 md:px-16"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
+            <div 
+              className={`flex gap-6 ${isTransitioning && !isSwiping ? 'transition-transform duration-1000 ease-in-out' : ''}`}
+              style={{
+                transform: `translateX(-${currentIndex * 336}px)`, // 320px width + 16px gap
+                cursor: isSwiping ? 'grabbing' : 'grab'
+              }}
+            >
+              {infiniteProjects.map((project, index) => (
+                <div
+                  key={`${project.id}-${Math.floor(index / allProjects.length)}-${index}`}
+                  className="flex-shrink-0 w-80 select-none"
+                >
+                  {/* Entire card is clickable */}
+                  <Link 
+                    to={`/projects#${project.anchor}`}
+                    className="block group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2 h-full cursor-pointer"
+                  >
+                    {/* Project Image */}
+                    <div className="relative overflow-hidden h-48">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        draggable="false"
+                        onError={(e) => {
+                          e.target.src = 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                        {project.category}
                       </div>
-                      <div className="flex items-center text-xs text-gray-500">
-                        <Calendar className="w-3 h-3 mr-2 text-blue-600" />
-                        {project.year}
-                      </div>
                     </div>
 
-                    {/* View Details Button */}
-                    <Link 
-                      to={`/projects#${project.anchor}`}
-                      className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors group-hover:underline text-sm"
-                    >
-                      View Details
-                      <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
+                    {/* Project Content */}
+                    <div className="p-5">
+                      <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-600 mb-3 leading-relaxed text-sm line-clamp-2">
+                        {project.description}
+                      </p>
+
+                      {/* Project Details */}
+                      <div className="space-y-1 mb-4">
+                        <div className="flex items-center text-xs text-gray-500">
+                          <MapPin className="w-3 h-3 mr-2 text-blue-600" />
+                          {project.location}
+                        </div>
+                        <div className="flex items-center text-xs text-gray-500">
+                          <Calendar className="w-3 h-3 mr-2 text-blue-600" />
+                          {project.year}
+                        </div>
+                      </div>
+
+                      {/* Visual cue for clickability */}
+                      <div className="inline-flex items-center text-blue-600 font-semibold group-hover:text-blue-700 transition-colors text-sm">
+                        <span className="group-hover:underline">View Details</span>
+                        <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </Link>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
