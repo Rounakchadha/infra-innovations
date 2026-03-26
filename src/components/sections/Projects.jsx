@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin, Calendar, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import your local images
-import highCourtHero from '../../assets/high_court/high_hero.jpg';
-import ekanahero from '../../assets/ekana/ekana_hero.jpg';
-import lohiahero from '../../assets/lohia/lohia_hero.jpg';
-import railhero from '../../assets/rail/rail_hero.jpg';
-import jhansihero from '../../assets/jhansi/jhansi_hero.jpg';
-import ramhero from '../../assets/ram/ramMandir.jpg';
+import highCourtHero from '../../assets/high_court/high_hero.webp';
+import ekanahero from '../../assets/ekana/ekana_hero.webp';
+import lohiahero from '../../assets/lohia/lohia_hero.webp';
+import railhero from '../../assets/rail/rail_hero.webp';
+import jhansihero from '../../assets/jhansi/jhansi_hero.webp';
+import ramhero from '../../assets/ram/ramMandir.webp';
 
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
