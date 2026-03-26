@@ -18,6 +18,7 @@ import jhansi2 from '../assets/projectpage/jhansi_2.webp';
 import jhansi3 from '../assets/projectpage/jhansi_3.webp';
 import jhansi4 from '../assets/projectpage/jhansi_4.webp';
 import jhansi5 from '../assets/projectpage/jhansi_5.webp';
+import dhyanchand1 from '../assets/projectpage/dhyanchand_1.webp';
 import rail1 from '../assets/projectpage/rail_hero.webp';
 import rail2 from '../assets/projectpage/rail1.webp';
 import rail3 from '../assets/projectpage/rail2.webp'
@@ -243,7 +244,7 @@ const ProjectsPage = () => {
         jhansi2,
         jhansi3,
         jhansi4,
-        jhansi5
+        dhyanchand1
       ],
       description: 'Premier hockey stadium lighting honoring the legendary Major Dhyan Chand, featuring professional-grade sports illumination for international tournaments. This facility meets FIH international standards and celebrates India\'s hockey heritage.',
       details: [
@@ -296,6 +297,7 @@ const ProjectsPage = () => {
       client: 'Government of Uttar Pradesh',
       area: '200,000 sq ft',
       anchor: 'lohia-dwar-ambedkar-park',
+      imageHeight: 'h-72',
       heroImage: lohia3,
       images: [
         lohia2,
@@ -485,7 +487,7 @@ const ProjectsPage = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6">Featured Projects</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6" aria-hidden="true"></div>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-justify">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center">
               Explore our most prestigious and impactful lighting installations
             </p>
           </div>
@@ -539,11 +541,11 @@ const ProjectsPage = () => {
               {/* Additional Project Images Grid - FIXED */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                 {project.images.map((image, imgIndex) => (
-                  <div key={imgIndex} className="relative overflow-hidden rounded-lg shadow-lg group bg-gray-900">
-                    <img 
-                      src={image} 
+                  <div key={imgIndex} className={`relative overflow-hidden rounded-lg shadow-lg group bg-gray-900 ${project.imageHeight || 'h-48'}`}>
+                    <img
+                      src={image}
                       alt={`${project.title} - Additional view ${imgIndex + 1}`}
-                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       width="300"
                       height="192"
                       loading="lazy"
@@ -610,9 +612,6 @@ const ProjectsPage = () => {
                 </div>
               </div>
 
-              {index < detailedProjects.length - 1 && (
-                <div className="mt-16 pt-8 border-t border-gray-700" aria-hidden="true"></div>
-              )}
             </article>
           ))}
         </div>
@@ -624,7 +623,7 @@ const ProjectsPage = () => {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-6">More Projects</h2>
             <div className="w-16 h-1 bg-blue-600 mx-auto mb-6" aria-hidden="true"></div>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-justify">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center">
               Explore our diverse portfolio across different sectors and industries
             </p>
           </div>
@@ -756,10 +755,6 @@ const ProjectsPage = () => {
                     </div>
                   </div>
 
-                  {/* Consistent Divider - only between rows */}
-                  {index < projectExpertise.length - 1 && index % 2 === 1 && (
-                    <div className="col-span-2 mt-8 pt-8 border-t border-gray-700" aria-hidden="true"></div>
-                  )}
                 </div>
               ))}
             </div>

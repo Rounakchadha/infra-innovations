@@ -6,6 +6,7 @@ import founderimg from '../assets/founderpic/founderimg.webp';
 const AboutPage = () => {
   // SEO and performance optimizations
   useEffect(() => {
+    window.scrollTo(0, 0);
     // Dynamic page title for better SEO
     document.title = "About Us - Infra Innovations";  // Secondary page
     
