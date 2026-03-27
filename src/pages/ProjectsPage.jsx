@@ -227,7 +227,7 @@ const ProjectsPage = () => {
         'BCCI-approved floodlights',
         'Record-breaking pole heights',
         'International cricket standards',
-        'Dynamic color-changing systems'
+        
       ]
     },
     {
