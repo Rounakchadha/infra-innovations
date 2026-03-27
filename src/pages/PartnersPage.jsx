@@ -3,16 +3,16 @@ import Header from '../components/layout/Header';
 import { ExternalLink, Award, Globe, Users, Calendar, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 // Import the local logo images
-import flosLogo from '../assets/company_logo/flos-logo.png';
-import begaLogo from '../assets/company_logo/bega-logo.png';
-import neriLogo from '../assets/company_logo/neri-logo.png';
-import traxonLogo from '../assets/company_logo/Traxone.jpg';
-import vizionLogo from '../assets/company_logo/vizion.jpg';
-import neriProject from '../assets/projectPhoto/neriProject.jpg';
-import flosProject from '../assets/projectPhoto/flosProject.jpg';
-import begaProject from '../assets/projectPhoto/begaproject.jpg';
-import vizionProject from '../assets/projectPhoto/vizionProject.jpg';
-import traxonProject from '../assets/projectPhoto/traxonProject.jpg';
+import flosLogo from '../assets/company_logo/flos-logo.webp';
+import begaLogo from '../assets/company_logo/bega-logo.webp';
+import neriLogo from '../assets/company_logo/neri-logo.webp';
+import traxonLogo from '../assets/company_logo/Traxone.webp';
+import vizionLogo from '../assets/company_logo/vizion.webp';
+import neriProject from '../assets/projectPhoto/neriProject.webp';
+import flosProject from '../assets/projectPhoto/flosProject.webp';
+import begaProject from '../assets/projectPhoto/begaproject.webp';
+import vizionProject from '../assets/projectPhoto/vizionProject.webp';
+import traxonProject from '../assets/projectPhoto/traxonProject.webp';
 
 const PartnersPage = () => {
   // SEO and performance optimizations

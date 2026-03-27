@@ -2,42 +2,43 @@ import React, { useEffect, useState } from 'react';
 import Header from '../components/layout/Header';
 import { Calendar, MapPin, Award, Users, Filter, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import heroBackground from '../assets/projectpage/website_2.jpg';
-import highcourt1 from '../assets/projectpage/highcourt1.jpg';
-import highcourt2 from '../assets/projectpage/highcourt2.jpg';
-import highcourt3 from '../assets/projectpage/highcourt3.jpg';
-import highcourt4 from '../assets/projectpage/highcourt4.jpg';
-import highcourt5 from '../assets/projectpage/highcourt5.jpg';
-import ekana1 from '../assets/projectpage/ekana_3.jpg';
-import ekana2 from '../assets/projectpage/ekana_hero.jpg';
-import ekana3 from '../assets/projectpage/ekana_2.jpg';
-import ekana4 from '../assets/projectpage/ekana_4.jpg';
-import ekana5 from '../assets/projectpage/ekana_1.jpg';
-import jhansi1 from '../assets/projectpage/jhansi_1.jpg';
-import jhansi2 from '../assets/projectpage/jhansi_2.jpg';
-import jhansi3 from '../assets/projectpage/jhansi_3.jpg';
-import jhansi4 from '../assets/projectpage/jhansi_4.jpg';
-import jhansi5 from '../assets/projectpage/jhansi_5.jpg';
-import rail1 from '../assets/projectpage/rail_hero.jpg';
-import rail2 from '../assets/projectpage/rail1.jpg';
-import rail3 from '../assets/projectpage/rail2.jpg'
-import rail4 from '../assets/projectpage/rail3.jpg'
-import rail5 from '../assets/projectpage/rail4.jpg'
-import lohia1 from '../assets/projectpage/lohia1.jpg'
-import lohia2 from '../assets/projectpage/lohia2.jpg'
-import lohia3 from '../assets/projectpage/ambedgar1.jpg'
-import lohia4 from '../assets/projectpage/ambedgar2.jpg'
-import lohia5 from '../assets/projectpage/ambedgar3.jpg'
-import ram1 from '../assets/projectpage/ayodhya_hero.jpg'
-import ram2 from '../assets/projectpage/ayodhya1.jpg'
-import ram3 from '../assets/projectpage/ayodhya2.jpg'
-import ram4 from '../assets/projectpage/ayodhya3.jpg'
-import ram5 from '../assets/projectpage/ayodhya4.jpg'
-import mall1 from '../assets/projectpage/saharamall.jpg'
-import hotel1 from '../assets/projectpage/saharastar.jpg'
-import hazrat1 from '../assets/projectpage/hazratganj2.jpg'
-import eco1 from '../assets/projectpage/eco.jpeg'
-import taj1 from '../assets/projectpage/taj1.jpg'
+import heroBackground from '../assets/projectpage/website_2.webp';
+import highcourt1 from '../assets/projectpage/highcourt1.webp';
+import highcourt2 from '../assets/projectpage/highcourt2.webp';
+import highcourt3 from '../assets/projectpage/highcourt3.webp';
+import highcourt4 from '../assets/projectpage/highcourt4.webp';
+import highcourt5 from '../assets/projectpage/highcourt5.webp';
+import ekana1 from '../assets/projectpage/ekana_3.webp';
+import ekana2 from '../assets/projectpage/ekana_hero.webp';
+import ekana3 from '../assets/projectpage/ekana_2.webp';
+import ekana4 from '../assets/projectpage/ekana_4.webp';
+import ekana5 from '../assets/projectpage/ekana_1.webp';
+import jhansi1 from '../assets/projectpage/jhansi_1.webp';
+import jhansi2 from '../assets/projectpage/jhansi_2.webp';
+import jhansi3 from '../assets/projectpage/jhansi_3.webp';
+import jhansi4 from '../assets/projectpage/jhansi_4.webp';
+import jhansi5 from '../assets/projectpage/jhansi_5.webp';
+import dhyanchand1 from '../assets/projectpage/dhyanchand_1.webp';
+import rail1 from '../assets/projectpage/rail_hero.webp';
+import rail2 from '../assets/projectpage/rail1.webp';
+import rail3 from '../assets/projectpage/rail2.webp'
+import rail4 from '../assets/projectpage/rail3.webp'
+import rail5 from '../assets/projectpage/rail4.webp'
+import lohia1 from '../assets/projectpage/lohia1.webp'
+import lohia2 from '../assets/projectpage/lohia2.webp'
+import lohia3 from '../assets/projectpage/ambedgar1.webp'
+import lohia4 from '../assets/projectpage/ambedgar2.webp'
+import lohia5 from '../assets/projectpage/ambedgar3.webp'
+import ram1 from '../assets/projectpage/ayodhya_hero.webp'
+import ram2 from '../assets/projectpage/ayodhya1.webp'
+import ram3 from '../assets/projectpage/ayodhya2.webp'
+import ram4 from '../assets/projectpage/ayodhya3.webp'
+import ram5 from '../assets/projectpage/ayodhya4.webp'
+import mall1 from '../assets/projectpage/saharamall.webp'
+import hotel1 from '../assets/projectpage/saharastar.webp'
+import hazrat1 from '../assets/projectpage/hazratganj2.webp'
+import eco1 from '../assets/projectpage/eco.webp'
+import taj1 from '../assets/projectpage/taj1.webp'
 
 const ProjectsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -243,7 +244,7 @@ const ProjectsPage = () => {
         jhansi2,
         jhansi3,
         jhansi4,
-        jhansi5
+        dhyanchand1
       ],
       description: 'Premier hockey stadium lighting honoring the legendary Major Dhyan Chand, featuring professional-grade sports illumination for international tournaments. This facility meets FIH international standards and celebrates India\'s hockey heritage.',
       details: [
@@ -296,6 +297,7 @@ const ProjectsPage = () => {
       client: 'Government of Uttar Pradesh',
       area: '200,000 sq ft',
       anchor: 'lohia-dwar-ambedkar-park',
+      imageHeight: 'h-72',
       heroImage: lohia3,
       images: [
         lohia2,
@@ -485,7 +487,7 @@ const ProjectsPage = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6">Featured Projects</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6" aria-hidden="true"></div>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-justify">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center">
               Explore our most prestigious and impactful lighting installations
             </p>
           </div>
@@ -539,11 +541,11 @@ const ProjectsPage = () => {
               {/* Additional Project Images Grid - FIXED */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                 {project.images.map((image, imgIndex) => (
-                  <div key={imgIndex} className="relative overflow-hidden rounded-lg shadow-lg group bg-gray-900">
-                    <img 
-                      src={image} 
+                  <div key={imgIndex} className={`relative overflow-hidden rounded-lg shadow-lg group bg-gray-900 ${project.imageHeight || 'h-48'}`}>
+                    <img
+                      src={image}
                       alt={`${project.title} - Additional view ${imgIndex + 1}`}
-                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       width="300"
                       height="192"
                       loading="lazy"
@@ -610,9 +612,6 @@ const ProjectsPage = () => {
                 </div>
               </div>
 
-              {index < detailedProjects.length - 1 && (
-                <div className="mt-16 pt-8 border-t border-gray-700" aria-hidden="true"></div>
-              )}
             </article>
           ))}
         </div>
@@ -624,7 +623,7 @@ const ProjectsPage = () => {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-6">More Projects</h2>
             <div className="w-16 h-1 bg-blue-600 mx-auto mb-6" aria-hidden="true"></div>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-justify">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center">
               Explore our diverse portfolio across different sectors and industries
             </p>
           </div>
@@ -756,10 +755,6 @@ const ProjectsPage = () => {
                     </div>
                   </div>
 
-                  {/* Consistent Divider - only between rows */}
-                  {index < projectExpertise.length - 1 && index % 2 === 1 && (
-                    <div className="col-span-2 mt-8 pt-8 border-t border-gray-700" aria-hidden="true"></div>
-                  )}
                 </div>
               ))}
             </div>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // Import the local logo images
-import flosLogo from '../../assets/company_logo/flos-logo.png'; 
-import begaLogo from '../../assets/company_logo/bega-logo.png';
-import neriLogo from '../../assets/company_logo/neri-logo.png';
-import vizionLogo from '../../assets/company_logo/vizion.jpg';
+import flosLogo from '../../assets/company_logo/flos-logo.webp'; 
+import begaLogo from '../../assets/company_logo/bega-logo.webp';
+import neriLogo from '../../assets/company_logo/neri-logo.webp';
+import vizionLogo from '../../assets/company_logo/vizion.webp';
 
 const Partners = () => {
   // Show 4 main partners on the home page with local logos

@@ -67,7 +67,7 @@ const Home = () => {
         "name": "Infra Innovations",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.infra.org.in/logo.png"
+          "url": "https://www.infra.org.in/logo.webp"
         }
       }
     };
@@ -89,7 +89,7 @@ const Home = () => {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Infra Innovations",
-      "image": "https://www.infra.org.in/hero-image.jpg",
+      "image": "https://www.infra.org.in/hero-image.webp",
       "description": "Leading lighting consultancy in Lucknow specializing in LED, commercial, stadium, and architectural lighting solutions",
       "@id": "https://www.infra.org.in/#organization",
       "url": "https://www.infra.org.in/",
@@ -166,7 +166,7 @@ const Home = () => {
       { property: 'og:description', content: 'Expert LED lighting, commercial lighting, stadium lighting solutions. 100+ prestigious projects across Uttar Pradesh.' },
       { property: 'og:url', content: 'https://www.infra.org.in/' },
       { property: 'og:type', content: 'website' },
-      { property: 'og:image', content: 'https://www.infra.org.in/og-image.jpg' },
+      { property: 'og:image', content: 'https://www.infra.org.in/og-image.webp' },
       { property: 'og:site_name', content: 'Infra Innovations' }
     ];
 

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import aboutimg1 from '../../assets/aboutSection/about1.jpg';
-import aboutimg2 from '../../assets/aboutSection/about2.jpg'
-import aboutimg3 from '../../assets/aboutSection/about3.jpg'
-import aboutimg4 from '../../assets/aboutSection/about4.jpg'
-import aboutimg5 from '../../assets/aboutSection/about5.jpg'
-import aboutimg6 from '../../assets/aboutSection/about6.jpg'
-import aboutimg7 from '../../assets/aboutSection/about7.jpg'
+import aboutimg1 from '../../assets/aboutSection/about1.webp';
+import aboutimg2 from '../../assets/aboutSection/about2.webp'
+import aboutimg3 from '../../assets/aboutSection/about3.webp'
+import aboutimg4 from '../../assets/aboutSection/about4.webp'
+import aboutimg5 from '../../assets/aboutSection/about5.webp'
+import aboutimg6 from '../../assets/aboutSection/about6.webp'
+import aboutimg7 from '../../assets/aboutSection/about7.webp'
 
 const About = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
